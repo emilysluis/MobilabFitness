@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.MobilabFitness">
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name="com.example.MobilabFitness.Stats"
+            android:label="Statistics"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            <meta-data
+                android:name=".Stats"
+                android:value="com.example.feb1.MainActivity"/>
+
+        </activity>
+        <activity
+            android:name="com.example.MobilabFitness.History"
+            android:label="@string/title_activity_history"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity" />
+        </activity>
+        <activity android:name="com.example.MobilabFitness.RecordWorkout" />
+        <activity
+            android:name="com.example.MobilabFitness.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.MobilabFitness.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.MobilabFitness.WorkoutTracking"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.MobilabFitness.TrackAllDay"
+            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity" />
+        </activity>
+        <activity android:name="com.example.MobilabFitness.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
