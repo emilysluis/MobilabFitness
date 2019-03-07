@@ -3,15 +3,24 @@ package com.example.MobilabFitness.User;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 
 @Entity(tableName = "users")
 public class User {
 
 
+    //TODO: add other attributes to constructor
+    public User(@NonNull String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
     @PrimaryKey(autoGenerate = true)
     private int uid;
 
+    @NonNull
     @ColumnInfo(name = "first_name")
     private String firstName;
 

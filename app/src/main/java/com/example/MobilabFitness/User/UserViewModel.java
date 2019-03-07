@@ -30,7 +30,7 @@ public class UserViewModel extends AndroidViewModel {
         return mAllUsers;
     }
 
-    void insert(User user) {
+    public void insert(User user) {
         mRepository.insert(user);
     }
 }

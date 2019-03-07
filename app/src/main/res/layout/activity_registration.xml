@@ -33,7 +33,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewRegistrationTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:hint="@string/hint_word"
+                android:hint="@string/hint_first_name"
                 android:inputType="textAutoComplete"
                 android:padding="@dimen/small_padding"
                 android:layout_marginBottom="@dimen/small_padding"
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:hint="@string/hint_word"
+                android:hint="@string/hint_last_name"
                 android:inputType="textAutoComplete"
                 android:padding="@dimen/small_padding"
                 android:layout_marginBottom="@dimen/small_padding"
@@ -67,99 +67,114 @@
                 android:id="@+id/edit_birthday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_padding"
+                android:layout_marginBottom="@dimen/small_padding"
                 android:fontFamily="sans-serif-light"
-                android:hint="@string/hint_word"
+                android:hint="@string/hint_birthday"
                 android:inputType="textAutoComplete"
+                android:padding="@dimen/small_padding"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edit_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_padding"
+                android:layout_marginBottom="@dimen/small_padding"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/hint_gender"
+                android:inputType="textAutoComplete"
+                android:padding="@dimen/small_padding"
+                android:textSize="18sp" />
+
+            <!-- Gender category -->
+            <LinearLayout
+                android:id="@+id/container_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    android:text="Gender"
+                    style="@style/CategoryStyle" />
+
+                <!-- Input field -->
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <!-- Gender drop-down spinner -->
+                    <Spinner
+                        android:id="@+id/spinner_gender"
+                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:paddingRight="16dp"
+                        android:spinnerMode="dropdown"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/edit_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/hint_height"
+                android:inputType="number"
                 android:padding="@dimen/small_padding"
                 android:layout_marginBottom="@dimen/small_padding"
                 android:layout_marginTop="@dimen/small_padding"
-                android:textSize="18sp"
-                android:autofillHints="AUTOFILL_TYPE_DATE" />
+                android:textSize="18sp"/>
 
-
-            <!--<android.support.design.widget.TextInputLayout
+            <!-- Measurement category -->
+            <LinearLayout
+                android:id="@+id/container_measurement"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <!-- Label -->
+                <TextView
+                    android:text="Measurement"
+                    style="@style/CategoryStyle" />
 
+                <!-- Input fields -->
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="4dp">
+
+                    <!-- Weight field -->
                     <EditText
-                        android:id="@+id/text_input_first_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Name"
-                        android:imeActionId="6"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:imeOptions="actionUnspecified"
-                        android:inputType="textPersonName"
-                        android:maxLines="1"
-                        android:singleLine="true" />
+                        android:id="@+id/edit_pet_weight"
+                        android:hint="weight"
+                        android:inputType="number"
+                        style="@style/EditorFieldStyle"  />
 
-                </android.support.design.widget.TextInputLayout>
+                    <!-- Units for weight (kg) -->
+                    <TextView
+                        android:id="@+id/label_weight_units"
+                        android:text="Kg"
+                        style="@style/EditorUnitsStyle"/>
+                </RelativeLayout>
+            </LinearLayout>
 
-                <EditText
-                    android:id="@+id/userName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:imeActionId="6"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
+            <EditText
+                android:id="@+id/edit_weight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/hint_weight"
+                android:inputType="number"
+                android:padding="@dimen/small_padding"
+                android:layout_marginBottom="@dimen/small_padding"
+                android:layout_marginTop="@dimen/small_padding"
+                android:textSize="18sp"/>
 
-                <AutoCompleteTextView
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/userBirthdate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="Birthday"
-                    android:inputType="date" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/userAbility"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Physical Ability"
-                    android:imeActionId="6"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPhonetic"
-                    android:maxLines="1"
-                    android:selectAllOnFocus="true"
-                    android:singleLine="true" />
-            </android.support.design.widget.TextInputLayout>-->
 
             <Button
                 android:id="@+id/register_button"
