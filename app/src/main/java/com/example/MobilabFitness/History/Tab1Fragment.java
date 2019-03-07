@@ -1,4 +1,4 @@
-package com.example.MobilabFitness;
+package com.example.MobilabFitness.History;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
+
+import com.example.MobilabFitness.R;
 
 public class Tab1Fragment extends Fragment {
 

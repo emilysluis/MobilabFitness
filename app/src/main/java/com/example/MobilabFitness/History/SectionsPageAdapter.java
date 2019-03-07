@@ -1,4 +1,4 @@
-package com.example.MobilabFitness;
+package com.example.MobilabFitness.History;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

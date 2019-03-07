@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.example.MobilabFitness.History.History;
+
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
@@ -55,16 +57,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public void loginRegister(View view) {
         startActivity(new Intent(this, LoginActivity.class));
     }
+
     public void register(View view){
         startActivity(new Intent(this, RegistrationActivity.class));
     }
 
     public void history(View view) {
         startActivity(new Intent(this, History.class));
-    }
-
-    public void statistics(View view) {
-        startActivity(new Intent(this, Stats.class));
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.MobilabFitness;
+package com.example.MobilabFitness.History;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.MobilabFitness.R;
 
 public class Tab2Fragment extends Fragment {
 

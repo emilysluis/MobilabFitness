@@ -16,16 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.example.MobilabFitness.Stats"
-            android:label="Statistics"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
-            <meta-data
-                android:name=".Stats"
-                android:value="com.example.feb1.MainActivity"/>
-
-        </activity>
-        <activity
-            android:name="com.example.MobilabFitness.History"
+            android:name="com.example.MobilabFitness.History.History"
             android:label="@string/title_activity_history"
             android:parentActivityName="com.example.MobilabFitness.MainActivity">
             <meta-data
