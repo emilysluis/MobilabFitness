@@ -66,4 +66,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         startActivity(new Intent(this, History.class));
     }
 
+    public void profile(View view) { startActivity(new Intent(this, UserProfileActivity.class));
+    }
 }

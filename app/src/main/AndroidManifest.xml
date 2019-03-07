@@ -15,34 +15,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".UserProfileActivity"></activity>
         <activity
-            android:name="com.example.MobilabFitness.History.History"
+            android:name=".History.History"
             android:label="@string/title_activity_history"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
-        <activity android:name="com.example.MobilabFitness.RecordWorkout" />
+        <activity android:name=".RecordWorkout" />
         <activity
-            android:name="com.example.MobilabFitness.RegistrationActivity"
+            android:name=".RegistrationActivity"
             android:label="@string/title_activity_registration"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
         <activity
-            android:name="com.example.MobilabFitness.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
         <activity
-            android:name="com.example.MobilabFitness.WorkoutTracking"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            android:name=".WorkoutTracking"
+            android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -50,15 +51,15 @@
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
         <activity
-            android:name="com.example.MobilabFitness.TrackAllDay"
-            android:parentActivityName="com.example.MobilabFitness.MainActivity">
+            android:name=".TrackAllDay"
+            android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
-        <activity android:name="com.example.MobilabFitness.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
