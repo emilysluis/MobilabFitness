@@ -1,5 +1,6 @@
 package com.example.MobilabFitness;
 
+import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,13 +9,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.MobilabFitness.User.User;
 import com.example.MobilabFitness.User.UserViewModel;
 
-public class RegistrationActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = "RegistrationActivity";
 
@@ -27,6 +31,14 @@ public class RegistrationActivity extends AppCompatActivity {
     private Spinner spinnerGender;
     private EditText editHeight;
     private EditText editWeight;
+    private Spinner spinnerFuncLevel;
+
+    private int gender;
+    private int funcLevel;
+
+    Button btnDatePicker;
+    private int mYear, mMonth, mDay;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +49,19 @@ public class RegistrationActivity extends AppCompatActivity {
 
         editFirstName = findViewById(R.id.edit_first_name);
         editLastName = findViewById(R.id.edit_last_name);
+        editBirthday = findViewById(R.id.edit_birthday);
         spinnerGender = findViewById(R.id.spinner_gender);
+        editHeight = findViewById(R.id.edit_height);
+        editWeight = findViewById(R.id.edit_weight);
+
+        spinnerFuncLevel = findViewById(R.id.spinner_functional_level);
+
+        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnDatePicker.setOnClickListener(this);
+
+
+        setupSpinner();
+        setupFuncLevelSpinner();
 
 
 
@@ -48,20 +72,82 @@ public class RegistrationActivity extends AppCompatActivity {
                 //TODO: add other attributes once set up
                 userViewModel.insert(new User(
                         editFirstName.getText().toString(),
-                        editLastName.getText().toString()));
-
+                        editLastName.getText().toString(),
+                        editBirthday.getText().toString(),
+                        gender,
+                        1,
+                        1,
+                        1));
                 finish();
             }
         });
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v == btnDatePicker) {
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            editBirthday.setText((monthOfYear + 1) + "-" +dayOfMonth + "-" +  year);
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        }
+    }
+
+
+
     /**
-     * Setup the dropdown spinner that allows the user to select the gender of the pet.
+     * Setup the dropdown spinner that allows the user to select the gender of the user.
      */
+    private void setupFuncLevelSpinner() {
+        ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_functional_level_options, android.R.layout.simple_spinner_item);
+
+        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        spinnerFuncLevel.setAdapter(genderSpinnerAdapter);
+
+        spinnerFuncLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if(selection.equals(getString(R.string.quad))){
+                        funcLevel = 1;
+                    }
+                    else if(selection.equals(getString(R.string.high))){
+                        funcLevel = 2;
+                    }
+                    else if(selection.equals(getString(R.string.low))){
+                        funcLevel = 3;
+                    }
+                    else{
+                        funcLevel = 0;
+                    }
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+               funcLevel = 0;
+            }
+        });
+
+
+    }
+
     private void setupSpinner() {
-        // Create adapter for spinner. The list options are from the String array it will use
-        // the spinner will use the default layout
         ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_gender_options, android.R.layout.simple_spinner_item);
 
@@ -77,22 +163,25 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
-                    if (selection.equals(getString(R.string.gender_male))) {
-                       // mGender = PetEntry.GENDER_MALE;
-                    } else if (selection.equals(getString(R.string.gender_female))) {
-                       // mGender = PetEntry.GENDER_FEMALE;
-                    } else {
-                       // mGender = PetEntry.GENDER_UNKNOWN;
+                    if(selection.equals(getString(R.string.gender_male))){
+                        gender = 1;
+                    }
+                    else if(selection.equals(getString(R.string.gender_female))){
+                        gender = 2;
+                    }
+                    else{
+                        gender = 0;
                     }
                 }
             }
-
             // Because AdapterView is an abstract class, onNothingSelected must be defined
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-               // mGender = PetEntry.GENDER_UNKNOWN;
+                gender = 0;
             }
         });
+
+
     }
 
 }

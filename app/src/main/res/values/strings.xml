@@ -35,9 +35,17 @@
     <string name="hint_word">User...</string>
 
 
+    
+    <!--SPINNER Gender-->
+    <string name="select_one">Select</string>
     <string name="gender_unknown">Unknown</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
+    
+    <!--Spinner Functional Level-->
+    <string name="quad">Quadriplegic</string>
+    <string name="high">High Paraplegic</string>
+    <string name="low">Low Paraplegic</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -52,4 +60,7 @@
     <string name="hint_height">Height (cm)</string>
     <string name="hint_weight">Weight (kg)</string>
     <string name="hint_gender">Gender (male, female, no anwser)</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

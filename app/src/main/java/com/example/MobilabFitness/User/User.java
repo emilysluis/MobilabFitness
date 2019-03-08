@@ -11,9 +11,17 @@ public class User {
 
 
     //TODO: add other attributes to constructor
-    public User(@NonNull String firstName, String lastName){
+    public User(@NonNull String firstName, String lastName,
+                 String birthday, int gender,
+                int height, int weight, int functionalLevel){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.height = height;
+        this.weight = weight;
+        this.functionalLevel = functionalLevel;
+
     }
 
 
@@ -28,19 +36,19 @@ public class User {
     private String lastName;
 
     @ColumnInfo(name = "birthday")
-    private String Birthday;
+    private String birthday;
 
     @ColumnInfo(name = "gender")
-    private int Gender;
+    private int gender;
 
     @ColumnInfo(name = "height")
-    private int Height;
+    private int height;
 
     @ColumnInfo(name = "weight")
-    private int Weight;
+    private int weight;
 
     @ColumnInfo(name = "functional_level")
-    private int FunctionalLevel;
+    private int functionalLevel;
 
 
     public int getUid() {
@@ -64,46 +72,49 @@ public class User {
     }
 
     public String getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(String birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
-    public int getGender() {
-        return Gender;
-    }
-
-    public void setGender(int gender) {
-        Gender = gender;
-    }
 
     public int getHeight() {
-        return Height;
+        return height;
     }
 
     public void setHeight(int height) {
-        Height = height;
+        this.height = height;
     }
 
     public int getWeight() {
-        return Weight;
+        return weight;
     }
 
     public void setWeight(int weight) {
-        Weight = weight;
+        this.weight = weight;
     }
 
     public int getFunctionalLevel() {
-        return FunctionalLevel;
+        return functionalLevel;
     }
 
     public void setFunctionalLevel(int functionalLevel) {
-        FunctionalLevel = functionalLevel;
+        this.functionalLevel = functionalLevel;
     }
 
     public void setUid(int uid) {
         this.uid = uid;
     }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+
 }

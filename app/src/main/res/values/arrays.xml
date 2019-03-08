@@ -2,8 +2,17 @@
 <resources>
     <!-- These are the options displayed in the gender drop-down Spinner -->
     <string-array name="array_gender_options">
-        <item>@string/gender_unknown</item>
+        <item>@string/select_one</item>
         <item>@string/gender_male</item>
         <item>@string/gender_female</item>
+        <item>@string/gender_unknown</item>
+
+
     </string-array>
+    <string-array name="array_functional_level_options" >
+        <item>@string/quad</item>
+        <item>@string/high</item>
+        <item>@string/low</item>
+    </string-array>
+
 </resources>
