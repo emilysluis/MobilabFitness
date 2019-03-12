@@ -10,6 +10,7 @@
 
     </string-array>
     <string-array name="array_functional_level_options" >
+        <item>@string/select_one</item>
         <item>@string/quad</item>
         <item>@string/high</item>
         <item>@string/low</item>

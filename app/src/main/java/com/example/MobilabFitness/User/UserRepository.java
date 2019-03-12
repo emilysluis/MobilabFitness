@@ -9,16 +9,23 @@ import java.util.List;
 public class UserRepository {
     private UserDao mUserDao;
     private LiveData<List<User>> mAllUsers;
+    private int mCount;
 
     UserRepository(Application application) {
         UserRoomDatabase db = UserRoomDatabase.getDatabase(application);
         mUserDao = db.userDao();
         mAllUsers = mUserDao.getAllUsers();
+        mCount = mUserDao.rowCount();
     }
 
     LiveData<List<User>> getAllUsers() {
         return mAllUsers;
     }
+
+    int rowCount() {
+        return rowCount();
+    }
+
 
 
     public void insert (User user) {

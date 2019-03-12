@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +39,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     Button btnDatePicker;
     private int mYear, mMonth, mDay;
+
+    public int userCount;
 
 
     @Override
@@ -75,9 +78,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         editLastName.getText().toString(),
                         editBirthday.getText().toString(),
                         gender,
-                        1,
-                        1,
-                        1));
+                        Integer.parseInt(editHeight.getText().toString()),
+                        Integer.parseInt(editWeight.getText().toString()),
+                        funcLevel));
+
+                userCount = userViewModel.rowCount();
+                Log.i(TAG, "*** Current user count: " + userCount);
+
                 finish();
             }
         });
@@ -99,7 +106,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-                            editBirthday.setText((monthOfYear + 1) + "-" +dayOfMonth + "-" +  year);
+                            editBirthday.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" +  year);
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
@@ -143,8 +150,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                funcLevel = 0;
             }
         });
-
-
     }
 
     private void setupSpinner() {

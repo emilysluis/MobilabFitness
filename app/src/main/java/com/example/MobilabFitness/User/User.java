@@ -11,18 +11,24 @@ public class User {
 
 
     //TODO: add other attributes to constructor
-    public User(@NonNull String firstName, String lastName,
-                 String birthday, int gender,
-                int height, int weight, int functionalLevel){
+    public User(@NonNull String firstName,
+                String lastName,
+                String birthday,
+                int gender,
+                int height,
+                int weight,
+                int funcLevel){
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.gender = gender;
         this.height = height;
         this.weight = weight;
-        this.functionalLevel = functionalLevel;
+        this.funcLevel = funcLevel;
 
     }
+
 
 
     @PrimaryKey(autoGenerate = true)
@@ -48,7 +54,7 @@ public class User {
     private int weight;
 
     @ColumnInfo(name = "functional_level")
-    private int functionalLevel;
+    private int funcLevel;
 
 
     public int getUid() {
@@ -79,7 +85,6 @@ public class User {
         this.birthday = birthday;
     }
 
-
     public int getHeight() {
         return height;
     }
@@ -96,12 +101,12 @@ public class User {
         this.weight = weight;
     }
 
-    public int getFunctionalLevel() {
-        return functionalLevel;
+    public int getFuncLevel() {
+        return funcLevel;
     }
 
-    public void setFunctionalLevel(int functionalLevel) {
-        this.functionalLevel = functionalLevel;
+    public void setFuncLevel(int funcLevel) {
+        this.funcLevel = funcLevel;
     }
 
     public void setUid(int uid) {
@@ -116,5 +121,5 @@ public class User {
         this.gender = gender;
     }
 
-
 }
+

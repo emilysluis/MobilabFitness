@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".UserProfileActivity"
+            android:label="User Profile"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity"/>
+        </activity>
         <activity
             android:name=".History.History"
             android:label="@string/title_activity_history"

@@ -30,6 +30,10 @@ public class UserViewModel extends AndroidViewModel {
         return mAllUsers;
     }
 
+    public int rowCount(){
+        return mRepository.rowCount();
+    }
+
     public void insert(User user) {
         mRepository.insert(user);
     }
