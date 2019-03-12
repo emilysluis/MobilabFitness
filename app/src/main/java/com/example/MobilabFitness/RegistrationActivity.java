@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -40,7 +39,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     Button btnDatePicker;
     private int mYear, mMonth, mDay;
 
-    public int userCount;
+    //public int userCount;
 
 
     @Override
@@ -82,8 +81,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         Integer.parseInt(editWeight.getText().toString()),
                         funcLevel));
 
-                userCount = userViewModel.rowCount();
-                Log.i(TAG, "*** Current user count: " + userCount);
+//                userCount = userViewModel.rowCount();
+//                Log.i(TAG, "*** Current user count: " + userCount);
 
                 finish();
             }

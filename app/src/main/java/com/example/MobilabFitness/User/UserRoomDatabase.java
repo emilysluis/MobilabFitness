@@ -18,21 +18,27 @@ public abstract class UserRoomDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (UserRoomDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), UserRoomDatabase.class, "user_database").addCallback(sRoomDatabaseCallback).build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            UserRoomDatabase.class, "user_database")
+                            .addCallback(sRoomDatabaseCallback).build();
                 }
             }
         }
         return INSTANCE;
     }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
 
-        @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
-            super.onOpen(db);
-            new PopulateDbAsync(INSTANCE).execute();
-        }
-    };
+    private static RoomDatabase.Callback sRoomDatabaseCallback =
+            new RoomDatabase.Callback(){
+
+                @Override
+                public void onOpen (@NonNull SupportSQLiteDatabase db){
+                    super.onOpen(db);
+                    new PopulateDbAsync(INSTANCE).execute();
+                }
+            };
+
+
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
@@ -44,11 +50,10 @@ public abstract class UserRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-//            mDao.deleteAll();
-//            Word word = new Word("Hello");
-//            mDao.insert(word);
-//            word = new Word("World");
-//            mDao.insert(word);
+            mDao.deleteAll();
+            User user = new User("Dummy Data", "Register to add users", "23/5/1998", 1, 1, 1, 1);
+            mDao.insertUser(user);
+
             return null;
         }
     }

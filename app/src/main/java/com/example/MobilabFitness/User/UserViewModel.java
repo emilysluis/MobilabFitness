@@ -26,34 +26,16 @@ public class UserViewModel extends AndroidViewModel {
         mAllUsers = mRepository.getAllUsers();
     }
 
-    LiveData<List<User>> getAllUsers() {
+    public LiveData<List<User>> getAllUsers() {
         return mAllUsers;
     }
 
-    public int rowCount(){
-        return mRepository.rowCount();
-    }
+//    public int rowCount(){
+//        return mRepository.rowCount();
+//    }
 
     public void insert(User user) {
         mRepository.insert(user);
     }
 }
 
-/*
-public class UserViewModel {
-private UserRepository mRepository;
-
-private LiveData<List<User>> mAllUsers;
-
-public UserViewModel (Application application) {
-//TODO: uncomment line below
-//  super(application);
-mRepository = new UserRepository(application);
-mAllUsers = mRepository.getAllUsers();
-}
-
-LiveData<List<User>> getAllUsers() { return mAllUsers; }
-
-public void insert(User user) { mRepository.insert(user); }
-}
-*/

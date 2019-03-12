@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
-    public void loginRegister(View view) {
-        startActivity(new Intent(this, LoginActivity.class));
-    }
+//    public void loginRegister(View view) {
+//        startActivity(new Intent(this, LoginActivity.class));
+//    }
 
     public void register(View view){
         startActivity(new Intent(this, RegistrationActivity.class));
@@ -67,5 +67,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     public void profile(View view) { startActivity(new Intent(this, UserProfileActivity.class));
+    }
+
+    public void userList(View view) {
+        startActivity(new Intent(this, UserListActivity.class));
     }
 }

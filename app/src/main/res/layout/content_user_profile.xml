@@ -23,29 +23,29 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Name"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_first_name"
-        app:layout_constraintEnd_toStartOf="@+id/text_first_name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewFirstName"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFirstName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/text_first_name"
+        android:id="@+id/textViewFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="16dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUserTitle"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="First Name" />
 
     <TextView
-        android:id="@+id/text_last_name"
+        android:id="@+id/textViewLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_first_name"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFirstName"
         tools:text="Last Name" />
 
 
@@ -72,7 +72,7 @@
         android:layout_marginTop="32dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLastName"
         tools:text="DD/MM/YYYY" />
 
     <!--Height Section-->

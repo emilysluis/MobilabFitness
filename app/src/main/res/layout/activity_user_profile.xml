@@ -28,7 +28,8 @@
         layout="@layout/content_user_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUserTitle"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/category_switch_user"

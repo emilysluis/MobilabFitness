@@ -35,13 +35,12 @@
     <string name="hint_word">User...</string>
 
 
-    
     <!--SPINNER Gender-->
     <string name="select_one">Select</string>
     <string name="gender_unknown">Unknown</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
-    
+
     <!--Spinner Functional Level-->
     <string name="quad">Quadriplegic</string>
     <string name="high">High Paraplegic</string>

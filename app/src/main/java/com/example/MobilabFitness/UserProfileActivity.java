@@ -27,8 +27,8 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        firstName = (TextView) findViewById(R.id.text_first_name);
-        lastName = (TextView) findViewById(R.id.text_last_name);
+        firstName = (TextView) findViewById(R.id.textViewFirstName);
+        lastName = (TextView) findViewById(R.id.textViewLastName);
         birthday = (TextView) findViewById(R.id.text_birthday);
         height = (TextView) findViewById(R.id.text_height);
         weight = (TextView) findViewById(R.id.text_weight);

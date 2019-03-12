@@ -20,6 +20,9 @@ public interface UserDao {
     @Query("SELECT COUNT(*) FROM users")
     int rowCount();
 
+    @Query("DELETE FROM users")
+    void deleteAll();
+
 //    @Query("SELECT first_name, last_name FROM users")
 //    LiveData<List<User>> getAllUserNames(first_name);
 
