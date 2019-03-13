@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/TextViewProgressUpdate"
         android:layout_width="0dp"
@@ -27,8 +28,26 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
+        android:id="@+id/buttonLogWorkout"
+        style="@style/AppTheme.Button.accent"
+        android:layout_width="181dp"
+
+        android:layout_height="160dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="logWorkout"
+        android:text="Log Workout"
+        app:layout_constraintEnd_toStartOf="@+id/buttonExtra"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewProgressUpdate" />
+
+    <Button
         android:id="@+id/buttonProfile"
-        style="@style/AppTheme.Button.primaryDark"
+        style="@style/AppTheme.Button.primary"
         android:layout_width="0dp"
 
         android:layout_height="160dp"
@@ -42,7 +61,9 @@
         app:layout_constraintEnd_toStartOf="@+id/imageViewBlueBox3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewProgressUpdate" />
+        app:layout_constraintTop_toBottomOf="@id/buttonLogWorkout" />
+
+
 
     <Button
         android:id="@+id/imageViewBlueBox3"
@@ -62,6 +83,23 @@
 
     </Button>
 
+
+    <Button
+        android:id="@+id/buttonExtra"
+        style="@style/AppTheme.Button.primaryDark"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Extra"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonLogWorkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonLogWorkout"
+        app:layout_constraintTop_toTopOf="@+id/buttonLogWorkout">
+
+    </Button>
 
     <Button
         android:id="@+id/buttonViewProgress"
@@ -90,15 +128,15 @@
         android:onClick="userList"
         android:text="View Users"
 
+        app:layout_constraintBottom_toBottomOf="@id/buttonViewProgress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonViewProgress"
-        app:layout_constraintTop_toTopOf="@id/buttonViewProgress"
-        app:layout_constraintBottom_toBottomOf="@id/buttonViewProgress" />
+        app:layout_constraintTop_toTopOf="@id/buttonViewProgress" />
 
 
     <Button
         android:id="@+id/imageView6"
-        style="@style/AppTheme.Button.primaryDark"
+        style="@style/AppTheme.Button.primary"
         android:layout_width="0dp"
 
         android:layout_marginStart="16dp"

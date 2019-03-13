@@ -27,31 +27,31 @@
             "notNull": false
           },
           {
-            "fieldPath": "Birthday",
+            "fieldPath": "birthday",
             "columnName": "birthday",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "Gender",
+            "fieldPath": "gender",
             "columnName": "gender",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "Height",
+            "fieldPath": "height",
             "columnName": "height",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "Weight",
+            "fieldPath": "weight",
             "columnName": "weight",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "FunctionalLevel",
+            "fieldPath": "funcLevel",
             "columnName": "functional_level",
             "affinity": "INTEGER",
             "notNull": true

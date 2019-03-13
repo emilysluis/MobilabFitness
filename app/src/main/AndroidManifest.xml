@@ -38,7 +38,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.MobilabFitness.MainActivity" />
         </activity>
-        <activity android:name=".RecordWorkout" />
+        <activity android:name=".RecordWorkout"
+            android:label="Log Workout">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.MobilabFitness.MainActivity"/>
+        </activity>
         <activity
             android:name=".RegistrationActivity"
             android:label="@string/title_activity_registration"

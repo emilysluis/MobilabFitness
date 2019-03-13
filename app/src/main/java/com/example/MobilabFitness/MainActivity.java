@@ -1,23 +1,52 @@
 package com.example.MobilabFitness;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.MobilabFitness.History.History;
+import com.example.MobilabFitness.User.User;
+import com.example.MobilabFitness.User.UserViewModel;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+
+    private String TAG = "MainActivity";
+    private UserViewModel userViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.i(TAG, "*** Starting from main on create");
+
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+
+        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+            @Override
+            public void onChanged(@Nullable List<User> users) {
+                Log.i(TAG, "*** testing getAllWords: "
+                        + userViewModel.getAllUsers().getValue().toArray().length);
+
+                Log.i(TAG, "*** array: "
+                        + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
+
+            }
+        });
 
         FloatingActionButton floatingActionButton =
                 (FloatingActionButton) findViewById(R.id.floatingActionButton);
@@ -66,10 +95,15 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         startActivity(new Intent(this, History.class));
     }
 
-    public void profile(View view) { startActivity(new Intent(this, UserProfileActivity.class));
+    public void profile(View view) {
+        startActivity(new Intent(this, UserProfileActivity.class));
     }
 
     public void userList(View view) {
         startActivity(new Intent(this, UserListActivity.class));
+    }
+
+    public void logWorkout(View view) {
+        startActivity(new Intent(this, RecordWorkout.class));
     }
 }

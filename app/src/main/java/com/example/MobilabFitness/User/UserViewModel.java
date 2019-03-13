@@ -20,19 +20,30 @@ public class UserViewModel extends AndroidViewModel {
     // - Repository is completely separated from the UI through the ViewModel.
     private LiveData<List<User>> mAllUsers;
 
+    private LiveData<List<User.NameTuple>> mAllFullNames;
+
+    private LiveData<Integer> mRowCount;
+
     public UserViewModel(Application application) {
         super(application);
         mRepository = new UserRepository(application);
         mAllUsers = mRepository.getAllUsers();
+        mAllFullNames = mRepository.loadFullNames();
+        mRowCount = mRepository.rowCount();
     }
 
     public LiveData<List<User>> getAllUsers() {
         return mAllUsers;
     }
 
-//    public int rowCount(){
-//        return mRepository.rowCount();
-//    }
+    public LiveData<List<User.NameTuple>> loadFullNames() {
+        return mAllFullNames;
+    }
+
+    public LiveData<Integer> rowCount(){
+        return mRowCount;
+    }
+
 
     public void insert(User user) {
         mRepository.insert(user);

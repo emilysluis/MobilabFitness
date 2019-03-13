@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -49,6 +50,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
 
+
+
         editFirstName = findViewById(R.id.edit_first_name);
         editLastName = findViewById(R.id.edit_last_name);
         editBirthday = findViewById(R.id.edit_birthday);
@@ -71,6 +74,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
+
+
                 //TODO: add other attributes once set up
                 userViewModel.insert(new User(
                         editFirstName.getText().toString(),
@@ -81,8 +86,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         Integer.parseInt(editWeight.getText().toString()),
                         funcLevel));
 
-//                userCount = userViewModel.rowCount();
-//                Log.i(TAG, "*** Current user count: " + userCount);
+
+                Log.i(TAG, "*** testing getAllWords: " + userViewModel.getAllUsers().getValue().toArray().length);
+
+
 
                 finish();
             }

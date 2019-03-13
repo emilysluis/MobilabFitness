@@ -10,14 +10,10 @@ import android.support.annotation.NonNull;
 public class User {
 
 
+
     //TODO: add other attributes to constructor
-    public User(@NonNull String firstName,
-                String lastName,
-                String birthday,
-                int gender,
-                int height,
-                int weight,
-                int funcLevel){
+    public User(@NonNull String firstName,  String lastName, String birthday,
+                int gender, int height, int weight, int funcLevel){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,6 +25,28 @@ public class User {
 
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        String s = "";
+        s = s + firstName + " " + lastName;
+        return s;
+    }
+
+    public static class NameTuple {
+
+        @ColumnInfo(name="first_name")
+        public String firstName;
+
+        @ColumnInfo(name="last_name")
+        public String lastName;
+
+        @NonNull
+        @Override
+        public String toString() {
+            return firstName + lastName;
+        }
+    }
 
 
     @PrimaryKey(autoGenerate = true)
@@ -122,4 +140,5 @@ public class User {
     }
 
 }
+
 

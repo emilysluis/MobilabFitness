@@ -9,22 +9,29 @@ import java.util.List;
 public class UserRepository {
     private UserDao mUserDao;
     private LiveData<List<User>> mAllUsers;
-//    private int mCount;
+    private LiveData<List<User.NameTuple>> mAllFullNames;
+    private LiveData<Integer> mRowCount;
 
     UserRepository(Application application) {
         UserRoomDatabase db = UserRoomDatabase.getDatabase(application);
         mUserDao = db.userDao();
         mAllUsers = mUserDao.getAllUsers();
-//        mCount = mUserDao.rowCount();
+        mAllFullNames = mUserDao.loadFullNames();
+        mRowCount = mUserDao.rowCount();
     }
 
     LiveData<List<User>> getAllUsers() {
         return mAllUsers;
     }
+    LiveData<List<User.NameTuple>> loadFullNames() {
+        return mAllFullNames;
+    }
 
-//    int rowCount() {
-//        return rowCount();
-//    }
+    LiveData<Integer> rowCount(){
+        return mRowCount;
+    }
+
+
 
 
 

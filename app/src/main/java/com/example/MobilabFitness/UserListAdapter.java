@@ -34,6 +34,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     private final LayoutInflater mInflater;
     private List<User> mUsers = Collections.emptyList(); // Cached copy of words
+    private List<User.NameTuple> mNames = Collections.emptyList();
+
     UserListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
     }
@@ -50,6 +52,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         User current = mUsers.get(position);
         holder.firstName.setText(current.getFirstName());
         holder.lastName.setText(current.getLastName());
+
+        Log.i(TAG, "*** Current user at position " + position + ":  "+ current.toString());
     }
 
     void setUsers(List<User> users) {
@@ -59,7 +63,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public int getItemCount() {
-        Log.i(TAG, "*** Current user count " + mUsers.size());
+        //Log.i(TAG, "*** Current user count " + mUsers.size());
+
         return mUsers.size();
     }
 }
