@@ -28,7 +28,7 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/buttonLogWorkout"
+        android:id="@+id/buttonSaveWorkout"
         style="@style/AppTheme.Button.accent"
         android:layout_width="181dp"
 
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageViewBlueBox3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogWorkout" />
+        app:layout_constraintTop_toBottomOf="@id/buttonSaveWorkout" />
 
 
 
@@ -93,11 +93,11 @@
         android:layout_marginRight="16dp"
         android:text="Extra"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonLogWorkout"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSaveWorkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonLogWorkout"
-        app:layout_constraintTop_toTopOf="@+id/buttonLogWorkout">
+        app:layout_constraintStart_toEndOf="@+id/buttonSaveWorkout"
+        app:layout_constraintTop_toTopOf="@+id/buttonSaveWorkout">
 
     </Button>
 

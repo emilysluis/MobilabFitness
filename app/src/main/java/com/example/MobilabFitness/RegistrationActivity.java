@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,10 +36,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private int gender;
     private int funcLevel;
 
-    Button btnDatePicker;
+    private Button btnDatePicker;
     private int mYear, mMonth, mDay;
-
-    //public int userCount;
 
 
     @Override
@@ -59,7 +56,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         editHeight = findViewById(R.id.edit_height);
         editWeight = findViewById(R.id.edit_weight);
 
-        spinnerFuncLevel = findViewById(R.id.spinner_functional_level);
+        spinnerFuncLevel = findViewById(R.id.spinner_type);
 
         btnDatePicker=(Button)findViewById(R.id.btn_date);
         btnDatePicker.setOnClickListener(this);
@@ -74,9 +71,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
+                //Log.i(TAG, "*** Check if user == null: " + (user.toString().isEmpty()));
 
-
-                //TODO: add other attributes once set up
                 userViewModel.insert(new User(
                         editFirstName.getText().toString(),
                         editLastName.getText().toString(),
@@ -87,9 +83,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         funcLevel));
 
 
-                Log.i(TAG, "*** testing getAllWords: " + userViewModel.getAllUsers().getValue().toArray().length);
+//                Log.i(TAG, "*** testing getAllUsers: " + userViewModel.getAllUsers().getValue().toArray().length);
 
-
+//                Log.i(TAG, "*** User array: "
+//                        + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
 
                 finish();
             }
@@ -194,5 +191,4 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
 
     }
-
 }

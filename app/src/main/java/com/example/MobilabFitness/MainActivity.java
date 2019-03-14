@@ -1,10 +1,7 @@
 package com.example.MobilabFitness;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,17 +11,15 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.MobilabFitness.History.History;
-import com.example.MobilabFitness.User.User;
 import com.example.MobilabFitness.User.UserViewModel;
-
-import java.util.Arrays;
-import java.util.List;
+import com.example.MobilabFitness.Workout.WorkoutViewModel;
 
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private String TAG = "MainActivity";
     private UserViewModel userViewModel;
+    private WorkoutViewModel workoutViewModel;
 
 
     @Override
@@ -34,19 +29,31 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         Log.i(TAG, "*** Starting from main on create");
 
-        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-
-        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
-            @Override
-            public void onChanged(@Nullable List<User> users) {
-                Log.i(TAG, "*** testing getAllWords: "
-                        + userViewModel.getAllUsers().getValue().toArray().length);
-
-                Log.i(TAG, "*** array: "
-                        + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
-
-            }
-        });
+//        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+//        workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel.class);
+//
+//        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+//            @Override
+//            public void onChanged(@Nullable List<User> users) {
+//                Log.i(TAG, "*** testing getAllUser: "
+//                        + userViewModel.getAllUsers().getValue().toArray().length);
+//
+//                Log.i(TAG, "*** User array: "
+//                        + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
+//
+//            }
+//        });
+//
+//        workoutViewModel.getAllWorkouts().observe(this, new Observer<List<Workout>>() {
+//            @Override
+//            public void onChanged(@Nullable List<Workout> workouts) {
+//                Log.i(TAG, "*** testing getAllWorkouts: "
+//                + workoutViewModel.getAllWorkouts().getValue().toArray().length);
+//
+//                Log.i(TAG, "*** Workout array: " +
+//                         Arrays.toString(workoutViewModel.getAllWorkouts().getValue().toArray()));
+//            }
+//        });
 
         FloatingActionButton floatingActionButton =
                 (FloatingActionButton) findViewById(R.id.floatingActionButton);
@@ -83,9 +90,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
-//    public void loginRegister(View view) {
-//        startActivity(new Intent(this, LoginActivity.class));
-//    }
 
     public void register(View view){
         startActivity(new Intent(this, RegistrationActivity.class));

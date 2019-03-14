@@ -4,6 +4,7 @@ package com.example.MobilabFitness.Workout;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity(tableName = "workout_table")
 public class Workout {
@@ -32,6 +33,11 @@ public class Workout {
     @ColumnInfo(name = "energy_exp")
     private int energyExp;
 
+    @NonNull
+    @Override
+    public String toString() {
+        return workoutid + ": " + title;
+    }
 
     public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp) {
         this.title = title;
@@ -54,6 +60,7 @@ public class Workout {
     public String getDate(){
         return date;
     }
+
     public int getDuration() {
         return duration;
     }

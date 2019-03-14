@@ -11,30 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".RegistrationActivity">
+    tools:context=".RecordWorkout">
 
-    <!-- @ColumnInfo(name = "title")
-    private String title;
-
-    @ColumnInfo(name = "date")
-    private String date;
-
-    @ColumnInfo(name = "duration")
-    private int duration;
-
-    @ColumnInfo(name = "distance")
-    private int distance;
-
-    @ColumnInfo(name = "calories")
-    private int calories;
-
-    @ColumnInfo(name = "type")
-    private int type;
-
-    @ColumnInfo(name = "energy_exp")
-    private int energyExp;-->
-
-    <!-- Login progress -->
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -45,39 +23,12 @@
 
 
     <ScrollView
-        android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!--Name-->
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Duration"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/editText"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <android.support.constraint.Guideline
-                    android:id="@+id/guideline3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent=".33" />
 
                 <TextView
                     android:id="@+id/textViewRecordWorkoutTitle"
@@ -89,8 +40,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!--Title-->
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textViewTitleLabel"
                     style="@style/CategoryStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -98,10 +50,9 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:text="Title"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRecordWorkoutTitle" />
-
                 <EditText
                     android:id="@+id/edit_title"
                     style="@style/EditorFieldStyle"
@@ -110,33 +61,33 @@
                     android:layout_marginRight="16dp"
                     android:hint="Descriptive workout title"
                     android:inputType="textCapWords"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline3" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel" />
 
+                <!--Date-->
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textViewDateLabel"
                     style="@style/CategoryStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:text="Date"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_date"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent" />
-
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTitleLabel" />
                 <EditText
                     android:id="@+id/edit_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:hint="DD/MM/YYYY"
                     android:inputType="date"
                     app:layout_constraintEnd_toStartOf="@+id/btn_date"
-                    app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_title" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewDateLabel" />
 
                 <Button
                     android:id="@+id/btn_date"
@@ -144,163 +95,227 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
+                    android:onClick="showDatePickerDialog"
                     android:text="SELECT DATE"
                     app:layout_constraintBottom_toBottomOf="@+id/edit_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/edit_date" />
 
-                <EditText
-                    android:id="@+id/editText"
+                <!--Duration-->
+                <TextView
+                    android:id="@+id/textViewDurationLabel"
+                    style="@style/CategoryStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="HH : MM"
-                    android:inputType="time"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Duration"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/edit_date" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDateLabel" />
+
+                <EditText
+                    android:id="@+id/edit_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="hours"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_min"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textViewDurationLabel"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
+                <TextView
+                    android:id="@+id/label_hrs_units"
+                    style="@style/EditorUnitsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hrs"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_hours"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_hours" />
+                <EditText
+                    android:id="@+id/edit_min"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:ems="10"
+                    android:hint="minutes"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:maxLength="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_hours"
+                    app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
+                <TextView
+                    android:id="@+id/label_mins_units"
+                    style="@style/EditorUnitsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="min"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_min"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_min" />
+
+                <!--Distance-->
+                <TextView
+                    android:id="@+id/textViewDistanceLabel"
+                    style="@style/CategoryStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Distance"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_distance"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDurationLabel" />
+                <EditText
+                    android:id="@+id/edit_distance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:ems="10"
+                    android:hint="Distance"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewDistanceLabel" />
+                <TextView
+                    android:id="@+id/label_dist_units"
+                    style="@style/EditorUnitsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="km"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_distance"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_distance" />
+
+                <!--Calories-->
+                <TextView
+                    android:id="@+id/textViewCaloriesLabel"
+                    style="@style/CategoryStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Calories"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_calories"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewDistanceLabel" />
+                <EditText
+                    android:id="@+id/edit_calories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:ems="10"
+                    android:hint="Calories"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewCaloriesLabel" />
+                <TextView
+                    android:id="@+id/label_cal_units"
+                    style="@style/EditorUnitsStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cal"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_calories"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_calories" />
+
+                <!--Type-->
+                <TextView
+                    android:id="@+id/textViewTypeLabel"
+                    style="@style/CategoryStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Type"
+                    app:layout_constraintEnd_toStartOf="@+id/spinner_type"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCaloriesLabel" />
+                <Spinner
+                    android:id="@+id/spinner_type"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:dropDownWidth="wrap_content"
+                    android:entries="@array/array_workout_type"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewTypeLabel" />
+
+                <!--Energy Expenditure-->
+                <TextView
+                    android:id="@+id/textViewEnergyExpLabel"
+                    style="@style/CategoryStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Energy Expenditure"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTypeLabel" />
+                <Spinner
+                    android:id="@+id/spinner_energy_exp"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:dropDownWidth="wrap_content"
+                    android:entries="@array/array_energy_exp"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewEnergyExpLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textViewEnergyExpLabel"
+                    app:layout_constraintVertical_bias="1.0" />
+
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".33" />
+
+                <Button
+                    android:id="@+id/buttonSaveWorkout"
+                    style="@style/AppTheme.Button.submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Save Workout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
 
             </android.support.constraint.ConstraintLayout>
 
 
-        </LinearLayout>
 
     </ScrollView>
 </LinearLayout>
-
-<!--<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_width="match_parent"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
-
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="16dp"-->
-        <!--tools:context=".RecordWorkout"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/textViewRegistrationTitle"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:paddingTop="16dp"-->
-            <!--android:text="Record Activity"-->
-            <!--android:textAppearance="@style/TextAppearance.AppCompat.Display2" />-->
-
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:paddingTop="16dp"-->
-            <!--android:text="Fill in all relevant information "-->
-            <!--android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/workoutName"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:hint="Give your workout a specific name"-->
-                <!--android:imeActionId="6"-->
-                <!--android:imeActionLabel="@string/action_sign_in_short"-->
-                <!--android:imeOptions="actionUnspecified"-->
-                <!--android:inputType="textShortMessage"-->
-                <!--android:maxLines="1"-->
-                <!--android:selectAllOnFocus="true"-->
-                <!--android:singleLine="true" />-->
-
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-
-
-            <!--<EditText-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:id="@+id/dateEditText"-->
-                <!--android:hint="Select Date"-->
-                <!--android:imeActionId="6"-->
-                <!--android:imeActionLabel="@string/action_sign_in_short"-->
-                <!--android:imeOptions="actionUnspecified"-->
-                <!--android:maxLines="1"-->
-                <!--android:selectAllOnFocus="true"-->
-                <!--android:singleLine="true"-->
-                <!--/>-->
-
-            <!--<DatePicker-->
-                <!--android:id="@+id/datePicker"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:datePickerMode="spinner"-->
-                <!--android:spinnersShown="true"-->
-                <!--android:calendarViewShown="false"-->
-                <!--android:visibility="gone"/>-->
-
-
-
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/workoutType"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:hint="Type of workout (ie sport, trail)"-->
-                <!--android:imeActionId="6"-->
-                <!--android:imeActionLabel="@string/action_sign_in_short"-->
-                <!--android:imeOptions="actionUnspecified"-->
-                <!--android:inputType="textShortMessage"-->
-                <!--android:maxLines="1"-->
-                <!--android:selectAllOnFocus="true"-->
-                <!--android:singleLine="true" />-->
-
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/editText2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:ems="10"-->
-                <!--android:hint="Duration"-->
-                <!--android:inputType="time"-->
-                 <!--/>-->
-
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <!--<Space-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="32dp" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/workoutSubmitButton"-->
-            <!--style="@style/AppTheme.Button.accent"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@color/colorAccent"-->
-            <!--android:text="Submit" />-->
-
-    <!--</LinearLayout>-->
-
-<!--</ScrollView>-->
-

@@ -16,4 +16,28 @@
         <item>@string/low</item>
     </string-array>
 
+
+    <string-array name="array_energy_exp">
+        <item>@string/select_one</item>
+        <item>@string/one</item>
+        <item>@string/two</item>
+        <item>@string/three</item>
+        <item>@string/four</item>
+        <item>@string/five</item>
+        <item>@string/six</item>
+        <item>@string/seven</item>
+        <item>@string/eight</item>
+        <item>@string/nine</item>
+        <item>@string/ten</item>
+    </string-array>
+
+
+    <string-array name="array_workout_type">
+        <item>@string/select_one</item>
+        <item>Wheelchair basketball</item>
+        <item>Bike Ride</item>
+        <item>Other</item>
+    </string-array>
+
+
 </resources>
