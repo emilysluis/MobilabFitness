@@ -26,295 +26,310 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-            <android.support.constraint.ConstraintLayout
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewRecordWorkoutTitle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/log_workout"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textViewRecordWorkoutTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="16dp"
-                    android:text="Log Workout"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <!--Title-->
+            <TextView
+                android:id="@+id/textViewTitleLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/title"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRecordWorkoutTitle" />
 
-                <!--Title-->
-                <TextView
-                    android:id="@+id/textViewTitleLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Title"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewRecordWorkoutTitle" />
-                <EditText
-                    android:id="@+id/edit_title"
-                    style="@style/EditorFieldStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:hint="Descriptive workout title"
-                    android:inputType="textCapWords"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel" />
+            <EditText
+                android:id="@+id/edit_title"
+                style="@style/EditorFieldStyle"
+                android:layout_width="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="@string/descriptive_workout_title"
+                android:inputType="textCapWords"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel"
+                android:importantForAutofill="no" />
 
-                <!--Date-->
-                <TextView
-                    android:id="@+id/textViewDateLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Date"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTitleLabel" />
-                <EditText
-                    android:id="@+id/edit_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="DD/MM/YYYY"
-                    android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_date"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewDateLabel" />
+            <!--Date-->
+            <TextView
+                android:id="@+id/textViewDateLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/date"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitleLabel" />
 
-                <Button
-                    android:id="@+id/btn_date"
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:onClick="showDatePickerDialog"
-                    android:text="SELECT DATE"
-                    app:layout_constraintBottom_toBottomOf="@+id/edit_date"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/edit_date" />
+            <EditText
+                android:id="@+id/edit_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/date_format"
+                android:inputType="date"
+                app:layout_constraintEnd_toStartOf="@+id/btn_date"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewDateLabel" />
 
-                <!--Duration-->
-                <TextView
-                    android:id="@+id/textViewDurationLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Duration"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDateLabel" />
+            <Button
+                android:id="@+id/btn_date"
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:onClick="showDatePickerDialog"
+                android:text="@string/select_date"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/edit_date" />
 
-                <EditText
-                    android:id="@+id/edit_hours"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="hours"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toStartOf="@+id/edit_min"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/textViewDurationLabel"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
-                <TextView
-                    android:id="@+id/label_hrs_units"
-                    style="@style/EditorUnitsStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hrs"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_hours"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_hours" />
-                <EditText
-                    android:id="@+id/edit_min"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="minutes"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    android:maxLength="2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/edit_hours"
-                    app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
-                <TextView
-                    android:id="@+id/label_mins_units"
-                    style="@style/EditorUnitsStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="min"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_min"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_min" />
+            <!--Duration-->
+            <TextView
+                android:id="@+id/textViewDurationLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/duration"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDateLabel" />
 
-                <!--Distance-->
-                <TextView
-                    android:id="@+id/textViewDistanceLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Distance"
-                    app:layout_constraintEnd_toStartOf="@+id/edit_distance"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDurationLabel" />
-                <EditText
-                    android:id="@+id/edit_distance"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Distance"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewDistanceLabel" />
-                <TextView
-                    android:id="@+id/label_dist_units"
-                    style="@style/EditorUnitsStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="km"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_distance"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_distance" />
+            <EditText
+                android:id="@+id/edit_hours"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hours"
+                android:inputType="number"
+                android:maxLength="2"
+                android:singleLine="true"
+                app:layout_constraintEnd_toStartOf="@+id/edit_min"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textViewDurationLabel"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
 
-                <!--Calories-->
-                <TextView
-                    android:id="@+id/textViewCaloriesLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Calories"
-                    app:layout_constraintEnd_toStartOf="@+id/edit_calories"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDistanceLabel" />
-                <EditText
-                    android:id="@+id/edit_calories"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Calories"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewCaloriesLabel" />
-                <TextView
-                    android:id="@+id/label_cal_units"
-                    style="@style/EditorUnitsStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cal"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/edit_calories"
-                    app:layout_constraintEnd_toEndOf="@+id/edit_calories" />
+            <TextView
+                android:id="@+id/label_hrs_units"
+                style="@style/EditorUnitsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hrs"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edit_hours"
+                app:layout_constraintEnd_toEndOf="@+id/edit_hours" />
 
-                <!--Type-->
-                <TextView
-                    android:id="@+id/textViewTypeLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Type"
-                    app:layout_constraintEnd_toStartOf="@+id/spinner_type"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewCaloriesLabel" />
-                <Spinner
-                    android:id="@+id/spinner_type"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:dropDownWidth="wrap_content"
-                    android:entries="@array/array_workout_type"
-                    android:paddingRight="16dp"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewTypeLabel" />
+            <EditText
+                android:id="@+id/edit_min"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/minutes"
+                android:inputType="number"
+                android:maxLength="2"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/edit_hours"
+                app:layout_constraintTop_toTopOf="@+id/textViewDurationLabel" />
 
-                <!--Energy Expenditure-->
-                <TextView
-                    android:id="@+id/textViewEnergyExpLabel"
-                    style="@style/CategoryStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Energy Expenditure"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTypeLabel" />
-                <Spinner
-                    android:id="@+id/spinner_energy_exp"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:dropDownWidth="wrap_content"
-                    android:entries="@array/array_energy_exp"
-                    android:paddingRight="16dp"
-                    android:spinnerMode="dialog"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewEnergyExpLabel"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/textViewEnergyExpLabel"
-                    app:layout_constraintVertical_bias="1.0" />
+            <TextView
+                android:id="@+id/label_mins_units"
+                style="@style/EditorUnitsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edit_min"
+                app:layout_constraintEnd_toEndOf="@+id/edit_min" />
+
+            <!--Distance-->
+            <TextView
+                android:id="@+id/textViewDistanceLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/distance"
+                app:layout_constraintEnd_toStartOf="@+id/edit_distance"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDurationLabel" />
+
+            <EditText
+                android:id="@+id/edit_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/distance"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewDistanceLabel" />
+
+            <TextView
+                android:id="@+id/label_dist_units"
+                style="@style/EditorUnitsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/km"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edit_distance"
+                app:layout_constraintEnd_toEndOf="@+id/edit_distance" />
+
+            <!--Calories-->
+            <TextView
+                android:id="@+id/textViewCaloriesLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/calories"
+                app:layout_constraintEnd_toStartOf="@+id/edit_calories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDistanceLabel" />
+
+            <EditText
+                android:id="@+id/edit_calories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/calories"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewCaloriesLabel" />
+
+            <TextView
+                android:id="@+id/label_cal_units"
+                style="@style/EditorUnitsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edit_calories"
+                app:layout_constraintEnd_toEndOf="@+id/edit_calories" />
+
+            <!--Type-->
+            <TextView
+                android:id="@+id/textViewTypeLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/type"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_type"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCaloriesLabel" />
+
+            <Spinner
+                android:id="@+id/spinner_type"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/array_workout_type"
+                android:paddingRight="16dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewTypeLabel"
+                android:paddingEnd="16dp" />
+
+            <!--Energy Expenditure-->
+            <TextView
+                android:id="@+id/textViewEnergyExpLabel"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/energy_expenditure"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTypeLabel" />
+
+            <Spinner
+                android:id="@+id/spinner_energy_exp"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/array_energy_exp"
+                android:paddingRight="16dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewEnergyExpLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewEnergyExpLabel"
+                app:layout_constraintVertical_bias="1.0"
+                android:paddingEnd="16dp" />
 
 
-                <android.support.constraint.Guideline
-                    android:id="@+id/guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent=".33" />
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".33" />
 
-                <Button
-                    android:id="@+id/buttonSaveWorkout"
-                    style="@style/AppTheme.Button.submit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:text="Save Workout"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
+            <Button
+                android:id="@+id/buttonSaveWorkout"
+                style="@style/AppTheme.Button.submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/save_workout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
 
-            </android.support.constraint.ConstraintLayout>
-
+        </android.support.constraint.ConstraintLayout>
 
 
     </ScrollView>

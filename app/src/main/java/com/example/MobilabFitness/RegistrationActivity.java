@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.MobilabFitness.User.User;
 import com.example.MobilabFitness.User.UserViewModel;
@@ -58,7 +59,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         spinnerFuncLevel = findViewById(R.id.spinner_type);
 
-        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnDatePicker= findViewById(R.id.btn_date);
         btnDatePicker.setOnClickListener(this);
 
 
@@ -70,27 +71,36 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         final Button button = findViewById(R.id.register_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                
+                insertUser();
 
-                //Log.i(TAG, "*** Check if user == null: " + (user.toString().isEmpty()));
-
-                userViewModel.insert(new User(
+                User user = new User(
                         editFirstName.getText().toString(),
                         editLastName.getText().toString(),
                         editBirthday.getText().toString(),
                         gender,
                         Integer.parseInt(editHeight.getText().toString()),
                         Integer.parseInt(editWeight.getText().toString()),
-                        funcLevel));
+                        funcLevel);
 
-
-//                Log.i(TAG, "*** testing getAllUsers: " + userViewModel.getAllUsers().getValue().toArray().length);
-
-//                Log.i(TAG, "*** User array: "
-//                        + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
+                if(user != null) {
+                    userViewModel.insert(user);
+                    Toast.makeText(getApplicationContext(), "insert(): " + user.toString(), Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "not inserted()", Toast.LENGTH_LONG).show();
+                }
 
                 finish();
             }
         });
+    }
+
+    private void insertUser() {
+        String firstName = editFirstName.getText().toString().trim();
+        String lastName = editLastName.getText().toString().trim();
+        String birthday = editBirthday.getText().toString().trim();
+
     }
 
 

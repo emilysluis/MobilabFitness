@@ -36,7 +36,12 @@ public class Workout {
     @NonNull
     @Override
     public String toString() {
-        return workoutid + ": " + title;
+        return workoutid + ": " + title + "\n"
+                + "duration: " + duration + "mins\n"
+                + "distance: " + distance + "km\n"
+                + "calories: " + calories
+                + "\ntype: " + type
+                + "\nEnergy Expenditure: " + energyExp;
     }
 
     public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp) {
@@ -49,7 +54,7 @@ public class Workout {
         this.energyExp = energyExp;
     }
 
-    public int getWorkoutid() {
+    int getWorkoutid() {
         return workoutid;
     }
 
@@ -61,27 +66,27 @@ public class Workout {
         return date;
     }
 
-    public int getDuration() {
+    int getDuration() {
         return duration;
     }
 
-    public int getDistance() {
+    int getDistance() {
         return distance;
     }
 
-    public int getCalories() {
+    int getCalories() {
         return calories;
     }
 
-    public int getType() {
+    int getType() {
         return type;
     }
 
-    public int getEnergyExp() {
+    int getEnergyExp() {
         return energyExp;
     }
 
-    public void setWorkoutid(int workoutid) {
+    void setWorkoutid(int workoutid) {
         this.workoutid = workoutid;
     }
 }

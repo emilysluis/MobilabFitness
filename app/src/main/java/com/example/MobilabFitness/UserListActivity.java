@@ -7,12 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.MobilabFitness.User.User;
 import com.example.MobilabFitness.User.UserViewModel;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -35,10 +33,9 @@ public class UserListActivity extends AppCompatActivity {
         userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(@Nullable final List<User> words) {
-                Log.i(TAG, "*** testing getAllWords: " + userViewModel.getAllUsers().getValue().toArray().length);
-
-                Log.i(TAG, "*** array: " + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
-
+//                Log.i(TAG, "*** testing getAllWords: " + userViewModel.getAllUsers().getValue().toArray().length);
+//
+//                Log.i(TAG, "*** array: " + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
 
                 // Update the cached copy of the words in the adapter.
                 adapter.setUsers(words);

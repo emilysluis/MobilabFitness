@@ -48,9 +48,9 @@ public abstract class WorkoutRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-////            mDao.deleteAll();
-//            Workout workout = new Workout("Sample", "01/01/2019", 5, 5, 1, 1, 1);
-//            mDao.insert(workout);
+            mDao.deleteAll();
+            Workout workout = new Workout("Sample", "01/01/2019", 5, 5, 1, 1, 1);
+            mDao.insert(workout);
             return null;
         }
     }

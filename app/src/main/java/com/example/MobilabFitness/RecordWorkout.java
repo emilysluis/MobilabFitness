@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.MobilabFitness.Workout.Workout;
 import com.example.MobilabFitness.Workout.WorkoutViewModel;
@@ -29,11 +31,11 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
     private EditText editDistance;
     private EditText editCalories;
     private Spinner spinnerType;
-    private Spinner spinnerEnergyExp;
+
     private Button buttonSaveWorkout;
 
-
-
+    private Spinner spinnerNew;
+    private Spinner spinnerEnergyExp;
 
 
     @Override
@@ -41,19 +43,35 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_workout);
 
-        editTitle = (EditText) findViewById(R.id.edit_title);
-        editTextDate = (EditText) findViewById(R.id.edit_date);
-        buttonDate = (Button) findViewById(R.id.btn_date);
-        editHours = (EditText) findViewById(R.id.edit_hours);
-        editMin = (EditText) findViewById(R.id.edit_min);
-        editDistance = (EditText) findViewById(R.id.edit_distance);
-        editCalories = (EditText) findViewById(R.id.edit_calories);
+        editTitle = findViewById(R.id.edit_title);
+        editTextDate = findViewById(R.id.edit_date);
+        buttonDate = findViewById(R.id.btn_date);
+        editHours = findViewById(R.id.edit_hours);
+        editMin = findViewById(R.id.edit_min);
+        editDistance = findViewById(R.id.edit_distance);
+        editCalories = findViewById(R.id.edit_calories);
 
-        spinnerType = (Spinner) findViewById(R.id.spinner_type);;
-        spinnerEnergyExp = (Spinner) findViewById(R.id.spinner_energy_exp);
+        spinnerType = findViewById(R.id.spinner_type);
+        spinnerEnergyExp = findViewById(R.id.spinner_energy_exp);
+
+
+
+
+
+
+
 
 
         workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel.class);
+
+//        np = findViewById(R.id.numberPicker);
+//
+//        np.setMinValue(1);
+//        np.setMaxValue(10);
+//        np.setVerticalFadingEdgeEnabled(false);
+//        np.setWrapSelectorWheel(false);
+//
+//        np.setOnValueChangedListener(onValueChangeListener);
 
 
         buttonSaveWorkout = (Button) findViewById(R.id.buttonSaveWorkout);
@@ -71,11 +89,27 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
                 finish();
             }
         });
+
+
+
+
     }
 
+    NumberPicker.OnValueChangeListener onValueChangeListener =
+            new NumberPicker.OnValueChangeListener(){
+                @Override
+                public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                    //editEnergy.setText(numberPicker.getValue());
+                    Toast.makeText(RecordWorkout.this,
+                            "selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "*** number picker value: " + numberPicker.getValue());
+                }
+            };
+
+
+
     private int getTime() {
-        Integer minutes = Integer.parseInt(editHours.getText().toString())*60 + Integer.parseInt(editMin.getText().toString());
-        return minutes;
+        return Integer.parseInt(editHours.getText().toString())*60 + Integer.parseInt(editMin.getText().toString());
     }
 
     public void showDatePickerDialog(View v) {
@@ -91,5 +125,6 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
 
     }
+
 
 }

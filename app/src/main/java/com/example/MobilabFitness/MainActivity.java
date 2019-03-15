@@ -10,16 +10,12 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import com.example.MobilabFitness.History.History;
-import com.example.MobilabFitness.User.UserViewModel;
-import com.example.MobilabFitness.Workout.WorkoutViewModel;
-
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private String TAG = "MainActivity";
-    private UserViewModel userViewModel;
-    private WorkoutViewModel workoutViewModel;
+//    private UserViewModel userViewModel;
+//    private WorkoutViewModel workoutViewModel;
 
 
     @Override
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 //        });
 
         FloatingActionButton floatingActionButton =
-                (FloatingActionButton) findViewById(R.id.floatingActionButton);
+                findViewById(R.id.floatingActionButton);
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

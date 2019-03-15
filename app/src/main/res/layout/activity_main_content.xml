@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
@@ -21,6 +21,7 @@
         android:padding="16dp"
         android:text="@string/progress"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,45 +36,43 @@
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="logWorkout"
-        android:text="Log Workout"
-        app:layout_constraintEnd_toStartOf="@+id/buttonExtra"
+        android:text="@string/log_workout"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewProgressUpdate" />
 
     <Button
         android:id="@+id/buttonProfile"
-        style="@style/AppTheme.Button.primary"
-        android:layout_width="0dp"
+        style="@style/AppTheme.Button.accent"
+        android:layout_width="182dp"
 
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:onClick="profile"
-        android:text="Profile"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewBlueBox3"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:text="@string/profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonSaveWorkout" />
-
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewProgress" />
 
 
     <Button
-        android:id="@+id/imageViewBlueBox3"
-        style="@style/AppTheme.Button.accent"
+        android:id="@+id/buttonExtra"
+        style="@style/AppTheme.Button.primaryDark"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
+
         android:layout_marginRight="16dp"
-        android:onClick="register"
-        android:text="@string/registerButton"
+        android:text="@string/extra"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/buttonProfile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,40 +84,43 @@
 
 
     <Button
-        android:id="@+id/buttonExtra"
+        android:id="@+id/buttonRegister"
         style="@style/AppTheme.Button.primaryDark"
         android:layout_width="0dp"
+
+
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="Extra"
+        android:onClick="register"
+        android:text="@string/registerButton"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/buttonSaveWorkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonSaveWorkout"
-        app:layout_constraintTop_toTopOf="@+id/buttonSaveWorkout">
+        app:layout_constraintTop_toTopOf="@+id/buttonSaveWorkout"
+        app:layout_constraintVertical_bias="1.0">
 
     </Button>
 
     <Button
         android:id="@+id/buttonViewProgress"
-        style="@style/AppTheme.Button.accent"
-        android:layout_width="0dp"
+        style="@style/AppTheme.Button.primaryDark"
+        android:layout_width="182dp"
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+
         android:layout_marginTop="16dp"
         android:onClick="history"
-        android:text="View Progress"
-
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfile"
+        android:text="@string/view_progress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSaveWorkout" />
 
     <Button
         android:id="@+id/buttonUserList"
-        style="@style/AppTheme.Button.primaryDark"
+        style="@style/AppTheme.Button.accent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -126,7 +128,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:onClick="userList"
-        android:text="View Users"
+        android:text="@string/view_users"
 
         app:layout_constraintBottom_toBottomOf="@id/buttonViewProgress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +148,7 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUserList" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonProfile" />
 
     <Button
         android:id="@+id/imageView7"

@@ -24,17 +24,16 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         private final TextView firstName;
         private final TextView lastName;
 
-        public UserViewHolder(@NonNull View itemView) {
+        UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            firstName = (TextView) itemView.findViewById(R.id.textViewFirstName);
-            lastName = (TextView) itemView.findViewById(R.id.textViewLastName);
+            firstName = itemView.findViewById(R.id.textViewFirstName);
+            lastName = itemView.findViewById(R.id.textViewLastName);
 
         }
     }
 
     private final LayoutInflater mInflater;
     private List<User> mUsers = Collections.emptyList(); // Cached copy of words
-    private List<User.NameTuple> mNames = Collections.emptyList();
 
     UserListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -43,7 +42,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_user_item, parent, false);
+        View itemView = mInflater.inflate(R.layout.recyclerview_user_item,
+                parent, false);
         return new UserViewHolder(itemView);
     }
 
@@ -63,8 +63,6 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public int getItemCount() {
-        //Log.i(TAG, "*** Current user count " + mUsers.size());
-
         return mUsers.size();
     }
 }

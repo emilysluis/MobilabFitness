@@ -1,13 +1,10 @@
-package com.example.MobilabFitness.History;
+package com.example.MobilabFitness;
 
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import com.example.MobilabFitness.R;
 
 public class History extends AppCompatActivity {
 
@@ -26,18 +23,19 @@ public class History extends AppCompatActivity {
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections Adapter
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }
 
     private void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new WorkoutListFragment(), "WORKOUT LOG");
+
         adapter.addFragment(new Tab1Fragment(), "CALENDAR");
-        adapter.addFragment(new Tab2Fragment(), "WORKOUT LOG");
         adapter.addFragment(new Tab3Fragment(), "Statistics");
         viewPager.setAdapter(adapter);
     }

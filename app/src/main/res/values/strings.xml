@@ -51,4 +51,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_history">History</string>
+    <string name="log_workout">Log Workout</string>
+    <string name="title">Title</string>
+    <string name="descriptive_workout_title">Descriptive workout title</string>
+    <string name="date">Date</string>
+    <string name="date_format">DD/MM/YYYY</string>
+    <string name="select_date">SELECT DATE</string>
+    <string name="duration">Duration</string>
+    <string name="hours">hours</string>
+    <string name="hrs">hrs</string>
+    <string name="minutes">minutes</string>
+    <string name="min">min</string>
+    <string name="distance">Distance</string>
+    <string name="km">km</string>
+    <string name="calories">Calories</string>
+    <string name="cal">Cal</string>
+    <string name="type">Type</string>
+    <string name="energy_expenditure">Energy Expenditure</string>
+    <string name="save_workout">Save Workout</string>
+    <string name="profile">Profile</string>
+    <string name="extra">Extra</string>
+    <string name="view_progress">View Progress</string>
+    <string name="view_users">View Users</string>
 </resources>

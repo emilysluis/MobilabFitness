@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.History;
+package com.example.MobilabFitness;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,12 +12,12 @@ class SectionsPageAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    public void addFragment(Fragment fragment, String title){
+    void addFragment(Fragment fragment, String title){
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
     }
 
-    public SectionsPageAdapter(FragmentManager fm) {
+    SectionsPageAdapter(FragmentManager fm) {
         super(fm);
     }
 

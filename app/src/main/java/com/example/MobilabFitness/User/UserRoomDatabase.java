@@ -50,7 +50,7 @@ public abstract class UserRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            //mDao.deleteAll();
+            mDao.deleteAll();
             User user = new User("Dummy Data", "Register to add users", "23/5/1998", 1, 1, 1, 1);
             mDao.insertUser(user);
 

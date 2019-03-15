@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.History;
+package com.example.MobilabFitness;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import com.example.MobilabFitness.R;
+import org.jetbrains.annotations.NotNull;
 
 public class Tab1Fragment extends Fragment {
 
@@ -21,11 +21,11 @@ public class Tab1Fragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        calendarView = (CalendarView) container.findViewById(R.id.calendarView);
+        calendarView = container.findViewById(R.id.calendarView);
 
-        dateDisplay = (TextView) container.findViewById(R.id.textViewShowDate);
+        dateDisplay = container.findViewById(R.id.textViewShowDate);
 
 
 
