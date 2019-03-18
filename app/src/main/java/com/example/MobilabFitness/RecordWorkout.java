@@ -2,6 +2,7 @@ package com.example.MobilabFitness;
 
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,18 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.example.MobilabFitness.User.UserViewModel;
+import com.example.MobilabFitness.User.appDatabase;
 import com.example.MobilabFitness.Workout.Workout;
-import com.example.MobilabFitness.Workout.WorkoutViewModel;
 
 public class RecordWorkout extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private static final String TAG = "RecordWorkout";
 
-    private WorkoutViewModel workoutViewModel;
+    //private WorkoutViewModel workoutViewModel;
 
     private EditText editTitle;
     private EditText editTextDate;
@@ -36,6 +36,11 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
     private Spinner spinnerNew;
     private Spinner spinnerEnergyExp;
+
+    private UserViewModel userViewModel;
+
+    private appDatabase appDatabase;
+    private static final String DATABASE_NAME = "app_db";
 
 
     @Override
@@ -58,11 +63,12 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
 
 
+        appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
+                .build();
 
 
 
-
-        workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel.class);
+       // workoutViewModel = ViewModelProviders.of(this).get(WorkoutViewModel.class);
 
 //        np = findViewById(R.id.numberPicker);
 //
@@ -78,33 +84,58 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         buttonSaveWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                workoutViewModel.insert(new Workout(
+
+                final Workout workout = new Workout(
                         editTitle.getText().toString(),
                         editTextDate.getText().toString(),
                         getTime(),
                         Integer.parseInt(editDistance.getText().toString()),
                         Integer.parseInt(editCalories.getText().toString()),
                         1,
-                        1));
+                        1);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        appDatabase.workoutDao().insert(workout);
+
+                    }
+                }) .start();
+
+
+
+//                workoutViewModel.insert(new Workout(
+//                        editTitle.getText().toString(),
+//                        editTextDate.getText().toString(),
+//                        getTime(),
+//                        Integer.parseInt(editDistance.getText().toString()),
+//                        Integer.parseInt(editCalories.getText().toString()),
+//                        1,
+//                        1));
                 finish();
             }
         });
 
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
 
 
-    }
 
-    NumberPicker.OnValueChangeListener onValueChangeListener =
-            new NumberPicker.OnValueChangeListener(){
-                @Override
-                public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                    //editEnergy.setText(numberPicker.getValue());
-                    Toast.makeText(RecordWorkout.this,
-                            "selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show();
-                    Log.i(TAG, "*** number picker value: " + numberPicker.getValue());
-                }
-            };
+    }//end onCreate
+
+
+
+//    NumberPicker.OnValueChangeListener onValueChangeListener =
+//            new NumberPicker.OnValueChangeListener(){
+//                @Override
+//                public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+//                    //editEnergy.setText(numberPicker.getValue());
+//                    Toast.makeText(RecordWorkout.this,
+//                            "selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show();
+//                    Log.i(TAG, "*** number picker value: " + numberPicker.getValue());
+//                }
+//            };
 
 
 

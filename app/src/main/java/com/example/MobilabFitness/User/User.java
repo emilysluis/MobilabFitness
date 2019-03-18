@@ -9,8 +9,6 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "users")
 public class User {
 
-
-
     //TODO: add other attributes to constructor
     public User(@NonNull String firstName,  String lastName, String birthday,
                 int gender, int height, int weight, int funcLevel){
@@ -136,6 +134,7 @@ public class User {
     public void setGender(int gender) {
         this.gender = gender;
     }
+
 
 }
 

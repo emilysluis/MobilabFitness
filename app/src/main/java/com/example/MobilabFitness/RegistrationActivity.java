@@ -2,6 +2,7 @@ package com.example.MobilabFitness;
 
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.MobilabFitness.User.User;
 import com.example.MobilabFitness.User.UserViewModel;
+import com.example.MobilabFitness.User.appDatabase;
 
 import java.util.Calendar;
 
@@ -39,6 +41,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private Button btnDatePicker;
     private int mYear, mMonth, mDay;
+
+    private appDatabase appDatabase;
+    private static final String DATABASE_NAME = "app_db";
 
 
     @Override
@@ -66,15 +71,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         setupSpinner();
         setupFuncLevelSpinner();
 
+        appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
+                .build();
+
 
 
         final Button button = findViewById(R.id.register_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 
-                insertUser();
+                //insertUser();
 
-                User user = new User(
+                final User user = new User(
                         editFirstName.getText().toString(),
                         editLastName.getText().toString(),
                         editBirthday.getText().toString(),
@@ -84,7 +92,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         funcLevel);
 
                 if(user != null) {
-                    userViewModel.insert(user);
+                    //TODO: Use new insert method
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            appDatabase.userDao().insertOnlySingleMovie(user);
+                        }
+                    }) .start();
+
+
+
+                   // userViewModel.insert(user);
                     Toast.makeText(getApplicationContext(), "insert(): " + user.toString(), Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -96,12 +115,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         });
     }
 
-    private void insertUser() {
-        String firstName = editFirstName.getText().toString().trim();
-        String lastName = editLastName.getText().toString().trim();
-        String birthday = editBirthday.getText().toString().trim();
 
-    }
 
 
     @Override

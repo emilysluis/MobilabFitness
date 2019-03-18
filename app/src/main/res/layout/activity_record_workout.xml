@@ -61,11 +61,11 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:hint="@string/descriptive_workout_title"
+                android:importantForAutofill="no"
                 android:inputType="textCapWords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel" />
 
             <!--Date-->
             <TextView
@@ -266,12 +266,12 @@
                 android:layout_marginRight="16dp"
                 android:dropDownWidth="wrap_content"
                 android:entries="@array/array_workout_type"
+                android:paddingEnd="16dp"
                 android:paddingRight="16dp"
                 android:spinnerMode="dialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textViewTypeLabel"
-                android:paddingEnd="16dp" />
+                app:layout_constraintTop_toTopOf="@+id/textViewTypeLabel" />
 
             <!--Energy Expenditure-->
             <TextView
@@ -295,6 +295,7 @@
                 android:layout_marginRight="16dp"
                 android:dropDownWidth="wrap_content"
                 android:entries="@array/array_energy_exp"
+                android:paddingEnd="16dp"
                 android:paddingRight="16dp"
                 android:spinnerMode="dialog"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewEnergyExpLabel"
@@ -302,8 +303,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="@+id/textViewEnergyExpLabel"
-                app:layout_constraintVertical_bias="1.0"
-                android:paddingEnd="16dp" />
+                app:layout_constraintVertical_bias="1.0" />
 
 
             <android.support.constraint.Guideline
@@ -320,12 +320,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="108dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:text="@string/save_workout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
+
+            <Spinner
+                android:id="@+id/spinnerUsers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
 

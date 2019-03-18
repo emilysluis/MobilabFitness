@@ -36,12 +36,12 @@ public class Workout {
     @NonNull
     @Override
     public String toString() {
-        return workoutid + ": " + title + "\n"
-                + "duration: " + duration + "mins\n"
-                + "distance: " + distance + "km\n"
-                + "calories: " + calories
-                + "\ntype: " + type
-                + "\nEnergy Expenditure: " + energyExp;
+            return workoutid + ": " + title + "\n"
+                    + "duration: " + duration + "mins\n"
+                    + "distance: " + distance + "km\n"
+                    + "calories: " + calories
+                    + "\ntype: " + type
+                    + "\nEnergy Expenditure: " + energyExp;
     }
 
     public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp) {

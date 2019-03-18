@@ -49,9 +49,9 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         workoutViewHolder.summary.setText(current.toString());
     }
 
-    void setmWorkouts(List<Workout> mWorkouts) {
+    void setWorkouts(List<Workout> mWorkouts) {
         this.mWorkouts = mWorkouts;
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
     }
 
     @Override
