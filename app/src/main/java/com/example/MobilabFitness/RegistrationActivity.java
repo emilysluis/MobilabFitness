@@ -15,9 +15,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.MobilabFitness.User.User;
+import com.example.MobilabFitness.Database.User;
+import com.example.MobilabFitness.Database.appDatabase;
 import com.example.MobilabFitness.User.UserViewModel;
-import com.example.MobilabFitness.User.appDatabase;
 
 import java.util.Calendar;
 

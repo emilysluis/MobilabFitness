@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.User;
+package com.example.MobilabFitness.Database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -22,6 +22,12 @@ public interface UserDao {
 
     @Query("SELECT * FROM users")
     List<User> getAllUsers();
+
+    @Query("SELECT * FROM users LIMIT 1")
+    User getOneUser();
+
+    @Query("SELECT COUNT(*) FROM users")
+    int getUserCount();
 
     @Update
     void updateMovie (User users);

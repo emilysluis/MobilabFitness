@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.User;
+package com.example.MobilabFitness.Database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

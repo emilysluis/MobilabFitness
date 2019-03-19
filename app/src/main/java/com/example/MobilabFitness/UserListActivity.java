@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
-import com.example.MobilabFitness.User.User;
-import com.example.MobilabFitness.User.appDatabase;
+import com.example.MobilabFitness.Database.User;
+import com.example.MobilabFitness.Database.appDatabase;
 
 import java.util.List;
 
@@ -22,12 +23,14 @@ public class UserListActivity extends AppCompatActivity {
     private appDatabase appDatabase;
 
     private List<User> listOfUsers;
+    private TextView showNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
-     //   userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+
+        showNumber = (TextView) findViewById(R.id.textViewUserNum);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final UserListAdapter adapter = new UserListAdapter(this);
@@ -44,27 +47,14 @@ public class UserListActivity extends AppCompatActivity {
                 listOfUsers = appDatabase.userDao().getAllUsers();
 
                 adapter.setUsers(listOfUsers);
+
+                showNumber.setText(new StringBuilder().append("Number of users in the database: ").append(appDatabase.userDao().getUserCount()).toString());
+
+
             }
         }) .start();
 
 
-
-
-
-
-
-
-        //        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
-//            @Override
-//            public void onChanged(@Nullable final List<User> words) {
-////                Log.i(TAG, "*** testing getAllWords: " + userViewModel.getAllUsers().getValue().toArray().length);
-////
-////                Log.i(TAG, "*** array: " + Arrays.toString(userViewModel.getAllUsers().getValue().toArray()));
-//
-//                // Update the cached copy of the words in the adapter.
-//                adapter.setUsers(words);
-//            }
-//        });
 
 
 

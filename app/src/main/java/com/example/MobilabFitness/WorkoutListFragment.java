@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.MobilabFitness.User.appDatabase;
-import com.example.MobilabFitness.Workout.Workout;
+import com.example.MobilabFitness.Database.Workout;
+import com.example.MobilabFitness.Database.appDatabase;
 
 import java.util.List;
 

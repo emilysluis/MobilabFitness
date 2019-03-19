@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.Workout;
+package com.example.MobilabFitness.Database;
 
 
 import android.arch.persistence.room.ColumnInfo;
@@ -44,6 +44,11 @@ public class Workout {
                     + "\nEnergy Expenditure: " + energyExp;
     }
 
+    public String workoutDetails() {
+        return date + " - " + duration + " mins  - " + distance + " km  - " + calories + " Cal";
+    }
+
+
     public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp) {
         this.title = title;
         this.date = date;
@@ -82,7 +87,7 @@ public class Workout {
         return type;
     }
 
-    int getEnergyExp() {
+    public int getEnergyExp() {
         return energyExp;
     }
 

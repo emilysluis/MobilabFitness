@@ -1,5 +1,6 @@
 package com.example.MobilabFitness;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,12 +9,24 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.MobilabFitness.Database.User;
+import com.example.MobilabFitness.Database.Workout;
+import com.example.MobilabFitness.Database.appDatabase;
 
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private String TAG = "MainActivity";
+
+    private static final String DATABASE_NAME = "app_db";
+    private appDatabase appDatabase;
+
+
+    private TextView currUser;
+    private int selectedUser;
 //    private UserViewModel userViewModel;
 //    private WorkoutViewModel workoutViewModel;
 
@@ -65,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
+        appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
+                .build();
+
+
     }//end onCreate
 
     @Override
@@ -87,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
 
+
+
     public void register(View view){
         startActivity(new Intent(this, RegistrationActivity.class));
     }
@@ -105,5 +124,42 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public void logWorkout(View view) {
         startActivity(new Intent(this, RecordWorkout.class));
+    }
+
+
+    public void Populate(View view) {
+        PopulateDatabase();
+        Toast.makeText(this, "Database filled", Toast.LENGTH_LONG).show();
+    }
+
+
+    public void PopulateDatabase(){
+
+//        appDatabase = Room.databaseBuilder(getApplicationContext(), com.example.MobilabFitness.Database.appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
+//                .build();
+
+        final User user1 = new User("Dummy", "Data", "01/01/2000", 1, 160, 60, 1);
+        final User user2 = new User("Mickey", "Mouse", "18/11/1928", 1, 96, 10, 2);
+        final User user3 = new User("Chester", "TheCat", "15/05/2008", 1, 50, 5, 3);
+
+
+        final Workout workout1 = new Workout("Morning practice", "01/01/2019", 75, 2, 500, 1, 3);
+        final Workout workout2 = new Workout("Evening ride", "19/03/2018", 120, 10, 800, 2, 7);
+        final Workout workout3 = new Workout("Swim", "28/07/2017", 45, 2, 1000, 3, 9);
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                appDatabase.userDao().insertOnlySingleMovie(user1);
+                appDatabase.userDao().insertOnlySingleMovie(user2);
+                appDatabase.userDao().insertOnlySingleMovie(user3);
+
+                appDatabase.workoutDao().insert(workout1);
+                appDatabase.workoutDao().insert(workout2);
+                appDatabase.workoutDao().insert(workout3);
+
+            }
+        }) .start();
     }
 }

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.MobilabFitness.Workout.Workout;
+import com.example.MobilabFitness.Database.Workout;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,10 +20,13 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     class WorkoutViewHolder extends RecyclerView.ViewHolder {
         private final TextView title;
         private final TextView summary;
+        private final TextView energyLevel;
+
         WorkoutViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.textViewTitle);
             summary = itemView.findViewById(R.id.textViewSummary);
+            energyLevel = itemView.findViewById(R.id.textViewEnergy);
         }
     }
 
@@ -45,8 +48,9 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     @Override
     public void onBindViewHolder(@NonNull WorkoutViewHolder workoutViewHolder, int i) {
         Workout current = mWorkouts.get(i);
+        workoutViewHolder.energyLevel.setText(Integer.toString(current.getEnergyExp()));
         workoutViewHolder.title.setText(current.getTitle());
-        workoutViewHolder.summary.setText(current.toString());
+        workoutViewHolder.summary.setText(current.workoutDetails());
     }
 
     void setWorkouts(List<Workout> mWorkouts) {

@@ -1,4 +1,4 @@
-package com.example.MobilabFitness.Workout;
+package com.example.MobilabFitness.Database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;

@@ -24,7 +24,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,6 +51,21 @@
                 android:layout_marginRight="16dp"
                 android:text="@string/title"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitleLabel2" />
+
+            <TextView
+                android:id="@+id/textViewTitleLabel2"
+                style="@style/CategoryStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="User"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRecordWorkoutTitle" />
 
@@ -317,13 +332,15 @@
                 android:id="@+id/buttonSaveWorkout"
                 style="@style/AppTheme.Button.submit"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="108dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginBottom="32dp"
                 android:text="@string/save_workout"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -332,15 +349,13 @@
             <Spinner
                 android:id="@+id/spinnerUsers"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel2" />
 
         </android.support.constraint.ConstraintLayout>
 

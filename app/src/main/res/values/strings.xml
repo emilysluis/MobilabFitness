@@ -3,7 +3,7 @@
     <string name="all_day_tracking">All Day Tracking</string>
     <string name="workout_tracking">Workout Tracking</string>
     <string name="manual_entry">Manual Entry</string>
-    <string name="progress">User\'s Progress\nWill Go Here</string>
+    <string name="progress">Current User</string>
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
