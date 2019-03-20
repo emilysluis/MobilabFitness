@@ -26,7 +26,7 @@ public class User {
     @NonNull
     @Override
     public String toString() {
-        return uid + ": " + firstName + " " + lastName;
+        return firstName + " " + lastName;
     }
 
     public static class NameTuple {

@@ -5,8 +5,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.widget.DatePicker;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -25,13 +23,13 @@ public class DatePickerFragment extends DialogFragment  {
         return new DatePickerDialog(getActivity(), (RecordWorkout)getActivity(), year, month, day);
     }
 
-    public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Do something with the date chosen by the user
-        Toast.makeText(getActivity(), "selected date is " + view.getYear() +
-                            " / " + (view.getMonth()+1) +
-                            " / " + view.getDayOfMonth(), Toast.LENGTH_SHORT).show();
-
-    }
+//    public void onDateSet(DatePicker view, int year, int month, int day) {
+//        // Do something with the date chosen by the user
+//        Toast.makeText(getActivity(), "selected date is " + view.getYear() +
+//                            " / " + (view.getMonth()+1) +
+//                            " / " + view.getDayOfMonth(), Toast.LENGTH_SHORT).show();
+//
+//    }
 
 
 
