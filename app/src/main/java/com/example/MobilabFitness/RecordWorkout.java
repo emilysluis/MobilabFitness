@@ -87,6 +87,7 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         editCalories = findViewById(R.id.edit_calories);
 
         spinnerType = findViewById(R.id.spinner_type);
+
         spinnerEnergyExp = findViewById(R.id.spinner_energy_exp);
 
 
@@ -112,6 +113,24 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
     }//end onCreate
 
+    private int getSpinnerTypeValue() {
+        int type = spinnerType.getSelectedItemPosition();
+        //Log.i(TAG, "*** Value of type spinner: "+ type);
+        return type;
+    }
+    private int getSpinnerEnergyExpValue() {
+        int value = spinnerEnergyExp.getSelectedItemPosition();
+        //Log.i(TAG, "*** Value of energy exp spinner: "+ value);
+        return value;
+    }
+
+    private User getSpinnerUser() {
+        User  selected = (User) spinnerUser.getSelectedItem();
+        //Log.i(TAG, "*** user spinner: "+ selected);
+        return selected;
+    }
+
+
     public class updateUserList extends AsyncTask<Void, Void, Void>{
 
         @Override
@@ -123,6 +142,7 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
                 Log.i(TAG, "*** " + listOfUsers);
                 ArrayAdapter<User> adapter = new ArrayAdapter<>(RecordWorkout.this, android.R.layout.simple_list_item_1, listOfUsers);
 
+                
                 spinnerUser.setAdapter(adapter);
             }
             else {
@@ -167,6 +187,15 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         final String date = editTextDate.getText().toString().trim();
         final int time = getTime();
 
+        final int type = spinnerType.getSelectedItemPosition();
+        final int energyValue = spinnerEnergyExp.getSelectedItemPosition();
+
+        //final int typeValue = getSpinnerTypeValue();
+        //final int energyValue = getSpinnerEnergyExpValue();
+        //User selected = getSpinnerUser();
+
+        //Log.i(TAG, "*** type: " + typeValue + "   energy: " + energyValue + "  selected user: " +selected.toString());
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -179,7 +208,7 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
                     cal = Integer.parseInt(editCalories.getText().toString());
                 }
 
-                Workout workout = new Workout(title, date, time, dist, cal, 0, 0);
+                Workout workout = new Workout(title, date, time, dist, cal, type, energyValue);
                 appDatabase.workoutDao().insert(workout);
 
             }

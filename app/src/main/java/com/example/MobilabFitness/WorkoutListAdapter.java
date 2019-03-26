@@ -59,10 +59,28 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
         int energy = current.getEnergyExp();
         switch (energy){
+            case 0:
             case 1:
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.light_blue));
+                break;
             case 2:
             case 3:
-                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.colorPrimary));
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.blue));
+                break;
+            case 4:
+            case 5:
+            case 6:
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.green));
+                break;
+            case 7:
+            case 8:
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.light_orange));
+            case 9:
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.orange));
+                break;
+            case 10:
+                workoutViewHolder.energyLevel.setTextColor(viewGroup.getResources().getColor(R.color.red));
+                break;
         }
 
         workoutViewHolder.title.setText(current.getTitle());

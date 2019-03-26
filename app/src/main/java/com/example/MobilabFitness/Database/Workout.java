@@ -9,6 +9,8 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "workout_table")
 public class Workout {
 
+//    TODO: add foreign key for user ID
+
     @PrimaryKey(autoGenerate = true)
     private int workoutid;
 
@@ -45,7 +47,9 @@ public class Workout {
     }
 
     public String workoutDetails() {
-        return date + " - " + duration + " mins  - " + distance + " km  - " + calories + " Cal";
+        return date + " - " + duration + " mins\n"
+                + distance + " km  - " + calories + " Cal\n"
+                + " type "  + type;
     }
 
 

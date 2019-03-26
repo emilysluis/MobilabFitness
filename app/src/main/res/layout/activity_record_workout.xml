@@ -62,9 +62,11 @@
                 android:layout_height="48dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textViewUserLabel" />
+                app:layout_constraintTop_toTopOf="@+id/textViewUserLabel"
+                />
 
             <!--Title-->
             <TextView

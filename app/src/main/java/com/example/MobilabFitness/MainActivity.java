@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
         final Workout workout1 = new Workout("Morning practice", "01/01/2019", 75, 2, 500, 1, 3);
-        final Workout workout2 = new Workout("Evening ride", "19/03/2018", 120, 10, 800, 2, 7);
+        final Workout workout2 = new Workout("Evening ride", "19/03/2018", 120, 10, 800, 2, 5);
         final Workout workout3 = new Workout("Swim", "28/07/2017", 45, 2, 1000, 3, 9);
 
 
