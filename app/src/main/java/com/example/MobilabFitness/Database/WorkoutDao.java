@@ -13,7 +13,7 @@ public interface WorkoutDao {
     @Insert
     void insert(Workout workout);
 
-    @Query("SELECT * FROM workout_table")
+    @Query("SELECT * FROM workout_table ORDER BY year DESC, month DESC, day DESC")
     List<Workout> getAllWorkouts();
 
     @Delete

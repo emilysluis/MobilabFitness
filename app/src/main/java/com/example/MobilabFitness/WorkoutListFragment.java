@@ -49,6 +49,8 @@ public class WorkoutListFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
+
+                //TODO: Modify to sort workouts by something
                 List<Workout> listOfWorkouts = userDatabase.workoutDao().getAllWorkouts();
                 adapter.setWorkouts(listOfWorkouts);
             }

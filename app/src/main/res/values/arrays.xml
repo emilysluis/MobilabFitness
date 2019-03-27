@@ -17,28 +17,52 @@
     </string-array>
 
 
+    <!--<string-array name="array_energy">-->
+        <!--<item>@string/select_one</item>-->
+        <!--<item>@string/one</item>-->
+        <!--<item>@string/two</item>-->
+        <!--<item>@string/three</item>-->
+        <!--<item>@string/four</item>-->
+        <!--<item>@string/five</item>-->
+        <!--<item>@string/six</item>-->
+        <!--<item>@string/seven</item>-->
+        <!--<item>@string/eight</item>-->
+        <!--<item>@string/nine</item>-->
+        <!--<item>@string/ten</item>-->
+    <!--</string-array>-->
+
     <string-array name="array_energy_exp">
         <item>@string/select_one</item>
-        <item>@string/one</item>
-        <item>@string/two</item>
-        <item>@string/three</item>
-        <item>@string/four</item>
-        <item>@string/five</item>
-        <item>@string/six</item>
-        <item>@string/seven</item>
-        <item>@string/eight</item>
-        <item>@string/nine</item>
-        <item>@string/ten</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
 
     <string-array name="array_workout_type">
         <item>@string/select_one</item>
-        <item>Wheelchair basketball</item>
-        <item>Bike Ride</item>
+        <item>Walking</item>
+        <item>Weight Training</item>
+        <item>Sprint Training</item>
+        <item>Biking</item>
+        <item>Hand Cycling</item>
+        <item>Yoga</item>
+        <item>Basketball</item>
+        <item>Badminton</item>
+        <item>Tennis</item>
+        <item>Rowing</item>
+        <item>Rugby</item>
+        <item>Football</item>
+        <item>Softball</item>
         <item>Other</item>
     </string-array>
-
 
 
 </resources>

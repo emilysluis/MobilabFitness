@@ -2,6 +2,7 @@ package com.example.MobilabFitness.Database;
 
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -19,6 +20,9 @@ public class Workout {
 
     @ColumnInfo(name = "date")
     private String date;
+
+    @Embedded
+    private date embeddedDate;
 
     @ColumnInfo(name = "duration")
     private int duration;
@@ -48,12 +52,11 @@ public class Workout {
 
     public String workoutDetails() {
         return date + " - " + duration + " mins\n"
-                + distance + " km  - " + calories + " Cal\n"
-                + " type "  + type;
+                + distance + " km  - " + calories + " Cal\n";
     }
 
 
-    public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp) {
+    public Workout(String title, String date, int duration, int distance, int calories, int type, int energyExp, date embeddedDate) {
         this.title = title;
         this.date = date;
         this.duration = duration;
@@ -61,9 +64,10 @@ public class Workout {
         this.calories = calories;
         this.type = type;
         this.energyExp = energyExp;
+        this.embeddedDate = embeddedDate;
     }
 
-    int getWorkoutid() {
+    public int getWorkoutid() {
         return workoutid;
     }
 
@@ -71,23 +75,23 @@ public class Workout {
         return title;
     }
 
-    public String getDate(){
-        return date;
+    public date getEmbeddedDate(){
+        return embeddedDate;
     }
 
-    int getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    int getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    int getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    int getType() {
+    public int getType() {
         return type;
     }
 
@@ -98,4 +102,14 @@ public class Workout {
     void setWorkoutid(int workoutid) {
         this.workoutid = workoutid;
     }
+
+    public void setEmbeddedDate(com.example.MobilabFitness.Database.date embeddedDate) {
+        this.embeddedDate = embeddedDate;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
 }
+

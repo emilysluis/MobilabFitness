@@ -49,12 +49,11 @@
     <string name="ten">10</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_history">History</string>
     <string name="log_workout">Log Workout</string>
     <string name="title">Title</string>
     <string name="descriptive_workout_title">Descriptive workout title</string>
-    <string name="date">Date</string>
+    <string name="embeddedDate">embeddedDate</string>
     <string name="date_format">DD/MM/YYYY</string>
     <string name="select_date">SELECT DATE</string>
     <string name="duration">Duration</string>
@@ -73,4 +72,5 @@
     <string name="extra">Extra</string>
     <string name="view_progress">View Progress</string>
     <string name="view_users">View Users</string>
+    <string name="Date">Date</string>
 </resources>

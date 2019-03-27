@@ -98,7 +98,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel" />
 
-            <!--Date-->
+            <!--embeddedDate-->
             <TextView
                 android:id="@+id/textViewDateLabel"
                 style="@style/CategoryStyle"
@@ -107,7 +107,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="@string/date"
+                android:text="@string/Date"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

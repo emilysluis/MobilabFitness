@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import com.example.MobilabFitness.Database.User;
 import com.example.MobilabFitness.Database.Workout;
 import com.example.MobilabFitness.Database.appDatabase;
+import com.example.MobilabFitness.Database.date;
 
 import java.util.List;
 
@@ -39,6 +40,8 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
     private Spinner spinnerUser;
 
     private Spinner spinnerEnergyExp;
+
+    private date Date;
 
 
     private appDatabase appDatabase;
@@ -90,7 +93,6 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
         spinnerEnergyExp = findViewById(R.id.spinner_energy_exp);
 
-
         buttonSaveWorkout = findViewById(R.id.buttonSaveWorkout);
         buttonSaveWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,22 +115,22 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
     }//end onCreate
 
-    private int getSpinnerTypeValue() {
-        int type = spinnerType.getSelectedItemPosition();
-        //Log.i(TAG, "*** Value of type spinner: "+ type);
-        return type;
-    }
-    private int getSpinnerEnergyExpValue() {
-        int value = spinnerEnergyExp.getSelectedItemPosition();
-        //Log.i(TAG, "*** Value of energy exp spinner: "+ value);
-        return value;
-    }
-
-    private User getSpinnerUser() {
-        User  selected = (User) spinnerUser.getSelectedItem();
-        //Log.i(TAG, "*** user spinner: "+ selected);
-        return selected;
-    }
+//    private int getSpinnerTypeValue() {
+//        int type = spinnerType.getSelectedItemPosition();
+//        //Log.i(TAG, "*** Value of type spinner: "+ type);
+//        return type;
+//    }
+//    private int getSpinnerEnergyExpValue() {
+//        int value = spinnerEnergyExp.getSelectedItemPosition();
+//        //Log.i(TAG, "*** Value of energy exp spinner: "+ value);
+//        return value;
+//    }
+//
+//    private User getSpinnerUser() {
+//        User  selected = (User) spinnerUser.getSelectedItem();
+//        //Log.i(TAG, "*** user spinner: "+ selected);
+//        return selected;
+//    }
 
 
     public class updateUserList extends AsyncTask<Void, Void, Void>{
@@ -208,7 +210,7 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
                     cal = Integer.parseInt(editCalories.getText().toString());
                 }
 
-                Workout workout = new Workout(title, date, time, dist, cal, type, energyValue);
+                Workout workout = new Workout(title, date, time, dist, cal, type, energyValue, Date);
                 appDatabase.workoutDao().insert(workout);
 
             }
@@ -255,6 +257,8 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         String day = "" + dayOfMonth + "/" + month + "/" + year;
         Log.i(TAG, "*** date: " + day);
         ((EditText) findViewById(R.id.edit_date)).setText(day);
+
+        Date = new date(dayOfMonth, month, year);
 
 
     }

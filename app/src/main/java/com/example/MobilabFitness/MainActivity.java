@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.MobilabFitness.Database.User;
 import com.example.MobilabFitness.Database.Workout;
 import com.example.MobilabFitness.Database.appDatabase;
+import com.example.MobilabFitness.Database.date;
 
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -143,9 +144,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         final User user3 = new User("Chester", "TheCat", "15/05/2008", 1, 50, 5, 3);
 
 
-        final Workout workout1 = new Workout("Morning practice", "01/01/2019", 75, 2, 500, 1, 3);
-        final Workout workout2 = new Workout("Evening ride", "19/03/2018", 120, 10, 800, 2, 5);
-        final Workout workout3 = new Workout("Swim", "28/07/2017", 45, 2, 1000, 3, 9);
+        final date date1 = new date(1, 1, 2019);
+        final Workout workout1 = new Workout("Morning practice", "01/01/2019", 75, 2, 500, 8, 3, date1);
+
+        final date date2 = new date(19, 03, 2018);
+        final Workout workout2 = new Workout("Evening ride", "19/03/2018", 120, 10, 800, 5, 5, date2);
+
+        final date date3 = new date(28, 7, 2017);
+        final Workout workout3 = new Workout("Row", "28/07/2017", 45, 2, 1000, 10, 9, date3);
 
 
         new Thread(new Runnable() {
