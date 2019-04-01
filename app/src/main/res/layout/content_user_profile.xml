@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -37,7 +36,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="First Name" />
+        android:text="First Name" />
 
     <TextView
         android:id="@+id/text_last_name"
@@ -46,7 +45,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text_first_name"
-        tools:text="Last Name" />
+        android:text="Last Name" />
 
 
     <!--Birthday Section-->
@@ -73,7 +72,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text_last_name"
-        tools:text="DD/MM/YYYY" />
+        android:text="DD/MM/YYYY" />
 
     <!--Height Section-->
     <TextView
@@ -99,7 +98,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text_birthday"
-        tools:text="Height" />
+        android:text="Height" />
 
     <!--Weight Section-->
     <TextView
@@ -125,7 +124,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text_height"
-        tools:text="Weight" />
+        android:text="Weight" />
 
     <!--Functional Level Section-->
     <TextView
@@ -151,7 +150,7 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text_weight"
-        tools:text="Functional Level" />
+        android:text="Functional Level" />
 
     <Space
         android:layout_width="0dp"

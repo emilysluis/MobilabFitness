@@ -2,6 +2,8 @@ package com.example.MobilabFitness.Database;
 
 import android.arch.persistence.room.ColumnInfo;
 
+import org.jetbrains.annotations.NotNull;
+
 public class date {
     @ColumnInfo(name = "day")
     private int day;
@@ -30,6 +32,7 @@ public class date {
         return year;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "" + day + "/" + month + "/" + year;

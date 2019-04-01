@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/allDayTracking"
-
         android:title="@string/all_day_tracking" />
     <item android:id="@+id/workoutTracking"
-
-        android:title="@string/workout_tracking"
-         />
+        android:title="@string/workout_tracking" />
     <item android:id="@+id/manualEntry"
-
         android:title="@string/manual_entry" />
 </menu>

@@ -31,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUserTitle"
         tools:layout_editor_absoluteX="0dp" />
 
+    <!-- Switch User Section -->
     <TextView
         android:id="@+id/category_switch_user"
         style="@style/CategoryStyle"
@@ -65,7 +66,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".33" />
-
-    <!-- Switch User Section -->
 
 </android.support.constraint.ConstraintLayout>

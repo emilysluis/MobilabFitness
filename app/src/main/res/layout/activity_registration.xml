@@ -62,7 +62,8 @@
                         android:id="@+id/edit_first_name"
                         android:hint="First Name"
                         android:inputType="textCapWords"
-                        style="@style/EditorFieldStyle" />
+                        style="@style/EditorFieldStyle"
+                        android:autofillHints="" />
 
                     <EditText
                         android:id="@+id/edit_last_name"
@@ -223,10 +224,6 @@
                             app:layout_constraintEnd_toEndOf="parent" />
 
                     </android.support.constraint.ConstraintLayout>
-
-
-
-
                 </LinearLayout>
             </LinearLayout>
 

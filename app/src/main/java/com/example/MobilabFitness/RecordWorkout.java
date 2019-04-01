@@ -60,26 +60,6 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
         updateUserList updateUserList = new updateUserList();
         updateUserList.execute();
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                listOfUsers = appDatabase.userDao().getAllUsers();
-//            }
-//        }).start();
-
-//        setUpUserSpinner();
-
-//        if (!setUpUserSpinner()) {
-//            View parentLayout = findViewById(android.R.id.content);
-//             Snackbar.make(parentLayout, "Please register a USER before continuing", Snackbar.LENGTH_LONG)
-//                    .setAction("Register", new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            startActivity(new Intent(RecordWorkout.this, RegistrationActivity.class));
-//                        }
-//                    }).setActionTextColor(getResources().getColor(R.color.colorAccent))
-//                    .show();
-//        }
 
 
         editTitle = findViewById(R.id.edit_title);
@@ -92,6 +72,8 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
         spinnerType = findViewById(R.id.spinner_type);
 
         spinnerEnergyExp = findViewById(R.id.spinner_energy_exp);
+
+        spinnerUser = findViewById(R.id.spinnerUsers);
 
         buttonSaveWorkout = findViewById(R.id.buttonSaveWorkout);
         buttonSaveWorkout.setOnClickListener(new View.OnClickListener() {
@@ -108,29 +90,21 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
                 } else {
                     insertWorkout();
 
-                    finish();
+                    Snackbar.make(v, "Workout Successfully Saved", Snackbar.LENGTH_LONG)
+                            .setAction("Done", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    finish();
+                                }
+                            })
+                            .show();
+
+                    //finish();
                 }
             }
         });
 
     }//end onCreate
-
-//    private int getSpinnerTypeValue() {
-//        int type = spinnerType.getSelectedItemPosition();
-//        //Log.i(TAG, "*** Value of type spinner: "+ type);
-//        return type;
-//    }
-//    private int getSpinnerEnergyExpValue() {
-//        int value = spinnerEnergyExp.getSelectedItemPosition();
-//        //Log.i(TAG, "*** Value of energy exp spinner: "+ value);
-//        return value;
-//    }
-//
-//    private User getSpinnerUser() {
-//        User  selected = (User) spinnerUser.getSelectedItem();
-//        //Log.i(TAG, "*** user spinner: "+ selected);
-//        return selected;
-//    }
 
 
     public class updateUserList extends AsyncTask<Void, Void, Void>{
@@ -186,31 +160,33 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
     private void insertWorkout() {
         final String title = editTitle.getText().toString().trim();
-        final String date = editTextDate.getText().toString().trim();
+        //final String date = editTextDate.getText().toString().trim();
         final int time = getTime();
 
         final int type = spinnerType.getSelectedItemPosition();
         final int energyValue = spinnerEnergyExp.getSelectedItemPosition();
 
-        //final int typeValue = getSpinnerTypeValue();
-        //final int energyValue = getSpinnerEnergyExpValue();
-        //User selected = getSpinnerUser();
+        final int userId = spinnerUser.getSelectedItemPosition();
 
-        //Log.i(TAG, "*** type: " + typeValue + "   energy: " + energyValue + "  selected user: " +selected.toString());
+        Log.i(TAG, "*** selected user Id: " + userId);
+
+
+        int dist = -1;
+        if (!editDistance.getText().toString().isEmpty())
+            dist = Integer.parseInt(editDistance.getText().toString());
+
+        int cal = -1;
+        if (!editCalories.getText().toString().isEmpty()) {
+            cal = Integer.parseInt(editCalories.getText().toString());
+        }
+
+        final Workout workout = new Workout(title, userId, time, dist, cal, type, energyValue, Date);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int dist = -1;
-                if (!editDistance.getText().toString().isEmpty())
-                    dist = Integer.parseInt(editDistance.getText().toString());
 
-                int cal = -1;
-                if (!editCalories.getText().toString().isEmpty()) {
-                    cal = Integer.parseInt(editCalories.getText().toString());
-                }
 
-                Workout workout = new Workout(title, date, time, dist, cal, type, energyValue, Date);
                 appDatabase.workoutDao().insert(workout);
 
             }
@@ -242,17 +218,6 @@ public class RecordWorkout extends AppCompatActivity implements DatePickerDialog
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-        //Date date = new Date(view.getYear(), view.getMonth(), view.getDayOfMonth());
-
-
-        //Log.i(TAG, "*** year: " + date.getYear());
-
-        //SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM yyyy");
-
-        //String stringDate = formatter.format(date);
-
-        //Log.i(TAG, "*** formatted date: " + stringDate);
 
         String day = "" + dayOfMonth + "/" + month + "/" + year;
         Log.i(TAG, "*** date: " + day);

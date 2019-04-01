@@ -1,22 +1,7 @@
 <resources>
     <string name="app_name">Mobilab Fitness</string>
-    <string name="all_day_tracking">All Day Tracking</string>
-    <string name="workout_tracking">Workout Tracking</string>
-    <string name="manual_entry">Manual Entry</string>
+
     <string name="progress">Current User</string>
-    <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
 
 
     <string name="title_activity_registration">Create Account</string>
@@ -37,23 +22,11 @@
     <string name="high">High Paraplegic</string>
     <string name="low">Low Paraplegic</string>
 
-    <string name="one">1: Description Here</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
-    <string name="six">6</string>
-    <string name="seven">7</string>
-    <string name="eight">8</string>
-    <string name="nine">9</string>
-    <string name="ten">10</string>
-
 
     <string name="title_activity_history">History</string>
     <string name="log_workout">Log Workout</string>
     <string name="title">Title</string>
     <string name="descriptive_workout_title">Descriptive workout title</string>
-    <string name="embeddedDate">embeddedDate</string>
     <string name="date_format">DD/MM/YYYY</string>
     <string name="select_date">SELECT DATE</string>
     <string name="duration">Duration</string>
@@ -69,8 +42,11 @@
     <string name="energy_expenditure">Energy Expenditure</string>
     <string name="save_workout">Save Workout</string>
     <string name="profile">Profile</string>
-    <string name="extra">Extra</string>
     <string name="view_progress">View Progress</string>
     <string name="view_users">View Users</string>
     <string name="Date">Date</string>
+    <string name="all_day_tracking">All Day Tracking</string>
+    <string name="workout_tracking">Workout Tracking</string>
+    <string name="manual_entry">Manual Entry</string>
+
 </resources>

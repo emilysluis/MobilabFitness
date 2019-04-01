@@ -51,10 +51,17 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        User current = mUsers.get(position);
+        final User current = mUsers.get(position);
         holder.firstName.setText(current.getFirstName());
         holder.lastName.setText(current.getLastName());
         holder.idNumber.setText(Integer.toString(current.getUid()));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "*** User selected: " + current.getFirstName());
+            }
+        });
 
         Log.i(TAG, "*** Current user at position " + position + ":  "+ current.toString());
     }

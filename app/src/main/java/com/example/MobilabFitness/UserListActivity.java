@@ -30,13 +30,12 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
 
-        showNumber = (TextView) findViewById(R.id.textViewUserNum);
+        showNumber = findViewById(R.id.textViewUserNum);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final UserListAdapter adapter = new UserListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
                 .build();
@@ -53,11 +52,6 @@ public class UserListActivity extends AppCompatActivity {
 
             }
         }) .start();
-
-
-
-
-
 
     }
 

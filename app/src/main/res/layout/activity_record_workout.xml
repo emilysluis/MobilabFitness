@@ -66,7 +66,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="@+id/textViewUserLabel"
-                />
+                tools:targetApi="p" />
 
             <!--Title-->
             <TextView
@@ -96,9 +96,9 @@
                 android:inputType="textCapWords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel" />
+                app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel"
+                tools:targetApi="o" />
 
-            <!--embeddedDate-->
             <TextView
                 android:id="@+id/textViewDateLabel"
                 style="@style/CategoryStyle"
@@ -121,7 +121,8 @@
                 android:inputType="date"
                 app:layout_constraintEnd_toStartOf="@+id/btn_date"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textViewDateLabel" />
+                app:layout_constraintTop_toTopOf="@+id/textViewDateLabel"
+                android:importantForAutofill="no" />
 
             <Button
                 android:id="@+id/btn_date"
@@ -362,10 +363,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_energy_exp" />
 
-
-
         </android.support.constraint.ConstraintLayout>
-
-
     </ScrollView>
 </LinearLayout>

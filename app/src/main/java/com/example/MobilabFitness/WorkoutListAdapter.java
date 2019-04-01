@@ -106,12 +106,12 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         workoutViewHolder.summary.setText(current.workoutDetails());
         workoutViewHolder.activityType.setText(activity);
 
-        date d = current.getEmbeddedDate();
+        date d = current.getDate();
         int k = d.getDay();
         workoutViewHolder.day.setText(Integer.toString(k));
 
         String m;
-        switch (current.getEmbeddedDate().getMonth()){
+        switch (current.getDate().getMonth()){
             case 1:
                 m = "Jan";
                 break;

@@ -1,7 +1,6 @@
 package com.example.MobilabFitness;
 
 import android.app.DatePickerDialog;
-import android.arch.lifecycle.ViewModelProviders;
 import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.MobilabFitness.Database.User;
 import com.example.MobilabFitness.Database.appDatabase;
-import com.example.MobilabFitness.User.UserViewModel;
 
 import java.util.Calendar;
 
@@ -25,7 +23,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private static final String TAG = "RegistrationActivity";
 
-    private UserViewModel userViewModel;
 
 
     private EditText editFirstName;
@@ -50,9 +47,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
-
+        appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
+                .build();
 
 
         editFirstName = findViewById(R.id.edit_first_name);
@@ -71,16 +68,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         setupSpinner();
         setupFuncLevelSpinner();
 
-        appDatabase = Room.databaseBuilder(getApplicationContext(), appDatabase.class, DATABASE_NAME).fallbackToDestructiveMigration()
-                .build();
-
 
 
         final Button button = findViewById(R.id.register_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                
-                //insertUser();
+
 
                 final User user = new User(
                         editFirstName.getText().toString(),
@@ -91,30 +84,20 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         Integer.parseInt(editWeight.getText().toString()),
                         funcLevel);
 
-                if(user != null) {
-                    //TODO: Use new insert method
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            appDatabase.userDao().insertOnlySingleMovie(user);
-                        }
-                    }) .start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        appDatabase.userDao().insertOnlySingleMovie(user);
+                    }
+                }) .start();
 
-
-
-                   // userViewModel.insert(user);
-                    Toast.makeText(getApplicationContext(), "insert(): " + user.toString(), Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "not inserted()", Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(getApplicationContext(), "insert(): " + user.toString(), Toast.LENGTH_LONG).show();
 
                 finish();
             }
         });
     }
-
 
 
 
@@ -141,10 +124,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
 
-
-    /**
-     * Setup the dropdown spinner that allows the user to select the gender of the user.
-     */
     private void setupFuncLevelSpinner() {
         ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_functional_level_options, android.R.layout.simple_spinner_item);
@@ -183,13 +162,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         ArrayAdapter genderSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_gender_options, android.R.layout.simple_spinner_item);
 
-        // Specify dropdown layout style - simple list view with 1 item per line
         genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
-        // Apply the adapter to the spinner
         spinnerGender.setAdapter(genderSpinnerAdapter);
-
-        // Set the integer mSelected to the constant values
         spinnerGender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -206,7 +181,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     }
                 }
             }
-            // Because AdapterView is an abstract class, onNothingSelected must be defined
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 gender = 0;

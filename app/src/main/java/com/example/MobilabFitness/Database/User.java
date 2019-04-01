@@ -29,21 +29,6 @@ public class User {
         return firstName + " " + lastName;
     }
 
-    public static class NameTuple {
-
-        @ColumnInfo(name="first_name")
-        public String firstName;
-
-        @ColumnInfo(name="last_name")
-        public String lastName;
-
-        @NonNull
-        @Override
-        public String toString() {
-            return firstName + lastName;
-        }
-    }
-
 
     @PrimaryKey(autoGenerate = true)
     private int uid;
